@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Sharpe.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,12 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComplexNumber.cs" />
-    <Compile Include="IdentityMatrix.cs" />
-    <Compile Include="Matrix.cs" />
-    <Compile Include="Number.cs" />
+    <Compile Include="Numbers\ComplexNumber.cs" />
+    <Compile Include="Matrix\IdentityMatrix.cs" />
+    <Compile Include="Matrix\Matrix.cs" />
+    <Compile Include="Matrix\MatrixMath.cs" />
+    <Compile Include="Matrix\MatrixOps.cs" />
+    <Compile Include="Support\NamespaceDoc.cs" />
+    <Compile Include="Numbers\Number.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vector.cs" />
+    <Compile Include="Matrix\Vector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
