@@ -1,3 +1,4 @@
+![SharpE](sharpe.png)
 # SharpE
 A simple and (soon to be) complete BLAS for C#
 
