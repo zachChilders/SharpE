@@ -108,12 +108,21 @@ namespace Sharpe
         }
 
         /// <summary>
-        /// Directly Copy a 2D array into a Matrix.
+        /// Directly Copy a 2D array into a Matrix. This may need
+        /// to be overloaded for each copy.
         /// </summary>
         /// <param name="data"></param>
         public Matrix(Number[][] data)
         {
-            throw new NotImplementedException();
+            matrix = new Number[data.Length][];
+            for (int i = 0; i < data.Length; i++)
+            {
+                matrix[i] = new Number[data[i].Length];
+                for (int j = 0; j < data[i].Length; j++)
+                {
+                    matrix[i][j] = data[i][j];
+                }
+            }
         }
 
         /// <summary>
@@ -203,6 +212,12 @@ namespace Sharpe
             return resultant;
         }
 
+        /// <summary>
+        /// Multiplies two matrices, if possible.  
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
         public static Matrix operator *(Matrix A, Matrix B)
         {
             if (A.NumCols != B.NumRows)
@@ -223,6 +238,12 @@ namespace Sharpe
             return resultant;
         }
 
+        /// <summary>
+        /// Multiplication overloaded to accept a standard Vector.
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
         public static Matrix operator *(Matrix A, Vector B)
         {
             Matrix resultant = new Matrix(A.NumRows, A.NumCols);
@@ -254,6 +275,11 @@ namespace Sharpe
             return sum;
         }
 
+        /// <summary>
+        /// Returns a column at given index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public Number[] GetColumn(int index)
         {
             Number[] column = new Number[NumRows];
@@ -262,6 +288,70 @@ namespace Sharpe
                 column[i] = matrix[i][index];
             }
             return column;
+        }
+
+        /// <summary>
+        /// Transposes the matrix
+        /// </summary>
+        /// <returns></returns>
+        public Matrix Transpose()
+        {
+            Matrix t = new Matrix(NumCols, NumRows);
+            for (int i = 0; i < NumRows; i++)
+            {
+                t[i] = this.GetColumn(i);
+            }
+
+            return t;
+        }
+
+        /// <summary>
+        /// Returns the Determinant of our matrix.
+        /// </summary>
+        /// <returns></returns>
+        public Number Determinant()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Returns the Main Diagonal of the matrix
+        /// </summary>
+        /// <returns></returns>
+        public Number[] Diagonal()
+        {
+            List<Number> diag = new List<Number>();
+            for (int i = 0; i < NumRows; i++)
+            {
+                for (int j = 0; j < NumCols; j++)
+                {
+                    if (i == j)
+                    {
+                        diag.Add(matrix[i][j]);
+                    }
+                }
+            }
+            return diag.ToArray();
+        }
+
+        /// <summary>
+        /// Returns a Diagonalized Matrix
+        /// </summary>
+        /// <returns></returns>
+        public Matrix Diagonalize()
+        {
+            Matrix diagonalized = new Matrix(NumRows, NumCols);
+            for (int i =0; i < NumRows; i++)
+            {
+                for (int j = 0; j < NumCols; j++)
+                {
+                    if (i == j)
+                    {
+                        diagonalized[i][j] = matrix[i][j];
+                    }
+                }
+            }
+            return diagonalized;
         }
     }
 }
