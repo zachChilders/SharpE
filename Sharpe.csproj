@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Matrix\LUMatrix.cs" />
     <Compile Include="Numbers\ComplexNumber.cs" />
     <Compile Include="Matrix\IdentityMatrix.cs" />
     <Compile Include="Matrix\Matrix.cs" />

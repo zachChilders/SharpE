@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpe
+namespace Sharpe.Numbers
 {
     /// <summary>
     /// Number is a generic class that allows any numerical data type to 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpe
+namespace Sharpe.Matrix
 {
     /// <summary>
     /// An n-Dimensional Vector

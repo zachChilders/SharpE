@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sharpe.Numbers;
 
-namespace Sharpe
+namespace Sharpe.Matrix
 {
     public partial class Matrix
     {
@@ -141,6 +142,42 @@ namespace Sharpe
             return sum;
         }
 
+        /// <summary>
+        /// Scales a set of numbers by a scalar.
+        /// </summary>
+        /// <param name="Vector">A Row, Column, or Vector.</param>
+        /// <param name="Scalar">A scale factor.</param>
+        /// <returns>The scaled vector</returns>
+        public static Number[] Scale(Number[] Vector, Number Scalar)
+        {
+            Number[] resultant = new Number[Vector.Length];
+            for (int i = 0; i < Vector.Length; i++)
+            {
+                resultant [i] = Vector[i] * Scalar;
+            }
+            return resultant;
+        }
+
+
+        /// <summary>
+        /// Subtracts Row2 from Row1.
+        /// </summary>
+        /// <param name="Row1">A row, column, or Vector</param>
+        /// <param name="Row2">A row, column, or Vector</param>
+        /// <returns>Row2 - Row1.</returns>
+        public static Number[] RowSubtract(Number[] Row1, Number[] Row2)
+        {
+            if (Row1.Length != Row2.Length)
+            {
+                throw new InvalidOperationException();
+            }
+            Number[] resultant = new Number[Row1.Length];
+            for (int i = 0; i < Row1.Length; i++)
+            {
+                resultant[i] = Row1[i] - Row2[i];
+            }
+            return resultant;
+        }
         /// <summary>
         /// Returns a column at given index
         /// </summary>
