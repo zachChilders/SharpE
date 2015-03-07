@@ -1,3 +1,4 @@
+![SharpE](sharpe.png)
 # SharpE
 A simple and (soon to be) complete BLAS for C#
 
@@ -11,3 +12,5 @@ operations can be carried out.  An EigenSolver, various decompositions, and many
 
 Additionally, as much parallelism will be leveraged as is possible.  The goal is to provide a fast, responsive BLAS 
 while remaining as user friendly as possible.
+
+[Documentation](https://zachchilders.github.io/SharpE/html/7857c2f4-144c-68c6-d62a-3bdb68bdb879.htm)
