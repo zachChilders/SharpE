@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="a49a3645-3a83-4d46-8f07-a10ca6cee86d" Title="Sharpe" Url="html/7857c2f4-144c-68c6-d62a-3bdb68bdb879.htm">
+    <HelpTOCNode Id="4cc5900a-9b59-44c2-8ed2-b91fc8eba8f5" Title="ComplexNumber Class" Url="html/a24082b4-e7cb-6fc3-7ca2-315b69f0ed25.htm">
+      <HelpTOCNode Id="c3013105-8ec1-43c4-afbf-f1ff45b4ddc8" Title="ComplexNumber Constructor " Url="html/fc57780d-504f-5401-3c0d-8ce8534fae3c.htm">
+        <HelpTOCNode Title="ComplexNumber Constructor " Url="html/6f848225-f3f6-a6c4-b89f-4d52b8b61031.htm" />
+        <HelpTOCNode Title="ComplexNumber Constructor (Double, Double)" Url="html/9b1f15b7-3410-6577-b794-455cebe28eee.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d8f5290a-49cc-4e0e-a85a-64d3a840a57b" Title="ComplexNumber Fields" Url="html/c3486c81-cc07-6d5e-41d4-02bdc3600b18.htm">
+        <HelpTOCNode Title="imaginary Field" Url="html/f1e1173c-736c-ae88-92aa-17de55dfa09c.htm" />
+        <HelpTOCNode Title="real Field" Url="html/feb222a9-b889-e495-87df-0b9e2618e261.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="da008d48-0cf8-4705-9ac3-f562bbfb77ed" Title="ComplexNumber Methods" Url="html/5dbc8ed0-c8e5-fcab-5216-0e0065cefd58.htm">
+        <HelpTOCNode Title="ToString Method " Url="html/8c3cc990-eeda-02e3-6bc2-738639e1eba2.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c5ed0e6d-c409-47dc-a6ff-fec0b1f9f099" Title="ComplexNumber Operators" Url="html/85f37258-ac27-6f9f-6239-dcfa749c37af.htm">
+        <HelpTOCNode Title="Addition Operator " Url="html/741a71d6-4f52-c0d7-9fdd-2a5975e788c9.htm" />
+        <HelpTOCNode Title="Division Operator " Url="html/e36e7ae0-fd69-3f12-71e3-1c39830ee107.htm" />
+        <HelpTOCNode Title="Multiply Operator " Url="html/f0ea940b-7d37-5608-2166-5454e1840e90.htm" />
+        <HelpTOCNode Title="Subtraction Operator " Url="html/2461bc2a-71cc-ec0e-10aa-35988832c450.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f1a5810f-ec74-4b1a-adbf-281aa8d727cf" Title="IdentityMatrix Class" Url="html/9f55bfcf-7d7b-b708-2256-a014beb0da1f.htm">
+      <HelpTOCNode Title="IdentityMatrix Constructor " Url="html/5103b324-6d30-f9dd-acf2-96f7f923c941.htm" />
+      <HelpTOCNode Title="IdentityMatrix Methods" Url="html/8f69cdda-a977-4a3c-bd16-f1e118514846.htm" />
+      <HelpTOCNode Title="IdentityMatrix Properties" Url="html/f8af2a6d-1ab8-cf56-5cc6-1a701b93d688.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="344c6e4c-0e30-4952-8ad1-f8cbccc6d69c" Title="Matrix Class" Url="html/68acfcaa-3ef4-da54-10b9-f01e794518b8.htm">
+      <HelpTOCNode Id="c363241e-b8d3-4bd9-8783-6c89d6734272" Title="Matrix Constructor " Url="html/04842fc9-b2ec-b4e4-177d-87a9e5df6a1e.htm">
+        <HelpTOCNode Title="Matrix Constructor (Number[][])" Url="html/53a4b57b-c7e6-3a93-0414-e036af59960e.htm" />
+        <HelpTOCNode Title="Matrix Constructor (Double[], Int32)" Url="html/8c87845a-0c45-6abd-10ac-244cd662423d.htm" />
+        <HelpTOCNode Title="Matrix Constructor (Int32, Int32)" Url="html/ed764a41-4f9e-bc67-2382-54528326240e.htm" />
+        <HelpTOCNode Title="Matrix Constructor (Int32[], Int32)" Url="html/651ee50b-df97-6e8c-f5a5-2bae40148946.htm" />
+        <HelpTOCNode Title="Matrix Constructor (Single[], Int32)" Url="html/2cf65342-45bf-0d3f-a5fc-d6091717076f.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="0c050294-83c3-4cc0-8eeb-2a858b0818ee" Title="Matrix Methods" Url="html/c5a54fd7-e260-98b3-45dc-20fafb45dd22.htm">
+        <HelpTOCNode Title="Determinant Method " Url="html/4b522be7-f67b-031a-38ba-fb5c808ce99f.htm" />
+        <HelpTOCNode Title="Diagonal Method " Url="html/a5dd005e-0e08-2cc1-6cad-0a7efcee4c5d.htm" />
+        <HelpTOCNode Title="Diagonalize Method " Url="html/cb4cc921-b162-39f6-7531-a00605ea6238.htm" />
+        <HelpTOCNode Title="dot Method " Url="html/314305e6-fe1a-61ec-3481-61d1f241d0d2.htm" />
+        <HelpTOCNode Title="GetColumn Method " Url="html/eec8f03a-682f-34cd-9d10-9671f682ddcc.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/68e35950-694c-5536-495f-69d080534bf2.htm" />
+        <HelpTOCNode Title="Transpose Method " Url="html/a367c4cd-0b41-078b-d907-dd44ae31d57a.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="5b818bb0-f5e5-4054-af53-5afdf69a9f2f" Title="Matrix Operators" Url="html/328f062f-ba9b-b615-6396-e18bc9e1b825.htm">
+        <HelpTOCNode Title="Addition Operator " Url="html/1fa19765-2056-f6c2-bd03-700d6ea96c41.htm" />
+        <HelpTOCNode Id="39442093-e722-4658-9119-e27b918c440e" Title="Multiply Operator " Url="html/042bc5be-2bf0-2748-7e65-ebe9dd26cebb.htm">
+          <HelpTOCNode Title="Multiply Operator (Matrix, Matrix)" Url="html/403cb750-a760-7d7c-4b9d-522e65517e6c.htm" />
+          <HelpTOCNode Title="Multiply Operator (Matrix, Number)" Url="html/e4b6b480-7d67-337a-c4ee-0e2ffddd6f43.htm" />
+          <HelpTOCNode Title="Multiply Operator (Matrix, Vector)" Url="html/36edd7bd-24a9-46bf-a211-6c2ba0557f52.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="Subtraction Operator " Url="html/31785916-f995-8178-ea50-7cced143e99a.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="588a8fbd-1f29-425e-b564-8064d8621b95" Title="Matrix Properties" Url="html/5da24a53-010e-a095-4dc1-28604c1d2a86.htm">
+        <HelpTOCNode Title="Item Property " Url="html/1a764d98-5e61-b40d-bc99-cf639b3fd3f7.htm" />
+        <HelpTOCNode Title="NumCols Property " Url="html/3818831e-963b-7db9-f1fd-793dd5268402.htm" />
+        <HelpTOCNode Title="NumRows Property " Url="html/00e6bcea-f9cd-511c-e2a2-c9fce387ce5d.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6a70fd16-9fd1-4231-b797-44f33eba9972" Title="Number Class" Url="html/20f07eee-266d-8513-5cd2-bfd89dc69caf.htm">
+      <HelpTOCNode Title="Number Constructor " Url="html/f7158c02-defe-58d4-77df-8cc4a4efbcd2.htm" />
+      <HelpTOCNode Id="ab5531f6-b50a-4cef-84f4-291c6b577cf6" Title="Number Methods" Url="html/1c249a80-7e07-5604-e042-820b396f72ac.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/30b679ab-d295-4617-66ee-e39da43994b5.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/1e117d84-2526-651d-b87b-808456f38c7f.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/438e1fd0-e328-ec76-c217-0e9a2dc8584d.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="95fb850a-cabd-4e47-984f-9f61ea54e261" Title="Number Operators and Type Conversions" Url="html/05bb814b-f9fc-db4b-672a-9a3aaca1bffc.htm">
+        <HelpTOCNode Title="Addition Operator " Url="html/ea394789-e3de-2d51-1e9b-8fefbec9a2b5.htm" />
+        <HelpTOCNode Title="Division Operator " Url="html/a56089ee-485c-5802-e3d7-fc2b21848451.htm" />
+        <HelpTOCNode Title="Equality Operator " Url="html/e8a711c4-562d-4e68-9cde-d0e5852584d7.htm" />
+        <HelpTOCNode Title="GreaterThan Operator " Url="html/6109c15e-7c9f-8235-43a4-4b582dd9460e.htm" />
+        <HelpTOCNode Title="GreaterThanOrEqual Operator " Url="html/d5db254e-a6b1-40c2-05e1-230d5b069ecb.htm" />
+        <HelpTOCNode Id="f38944f3-3960-4fb7-a40c-b32465b58b2d" Title="Implicit Conversion Operators" Url="html/87cd7bd2-9ec9-eabb-7ac0-e5e6eeb46c9a.htm">
+          <HelpTOCNode Title="Implicit Conversion (Double to Number)" Url="html/eacc7045-d4b5-304e-13f0-0095ecd6b3d3.htm" />
+          <HelpTOCNode Title="Implicit Conversion (Int64 to Number)" Url="html/53f3d542-dfa9-551c-655e-8d4f5f3b0ff5.htm" />
+          <HelpTOCNode Title="Implicit Conversion (ComplexNumber to Number)" Url="html/6637a6fe-e439-674e-93a8-61f3b1667e57.htm" />
+          <HelpTOCNode Title="Implicit Conversion (Number to Double)" Url="html/349d4658-a0a9-97d2-d48f-7cc216d7faff.htm" />
+          <HelpTOCNode Title="Implicit Conversion (Number to Int64)" Url="html/592d8926-2500-6dcf-0e12-090b9e063ca4.htm" />
+          <HelpTOCNode Title="Implicit Conversion (Number to ComplexNumber)" Url="html/0ee43ce7-ed56-8a96-c4b4-eac59654c424.htm" />
+          <HelpTOCNode Title="Implicit Conversion (Number to Single)" Url="html/b2788797-f19e-199f-5a0e-6abe08c90026.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="Inequality Operator " Url="html/f978bc54-8f70-643f-1474-0a3f099764e5.htm" />
+        <HelpTOCNode Title="LessThan Operator " Url="html/fc604e8d-0e36-903d-9e13-24d8ad8b5c2b.htm" />
+        <HelpTOCNode Title="LessThanOrEqual Operator " Url="html/d7806afb-09c0-0bbd-f3ca-e91e24bb571a.htm" />
+        <HelpTOCNode Title="Multiply Operator " Url="html/32135b42-7c4a-54ff-6718-0a9dbbaf4f0d.htm" />
+        <HelpTOCNode Title="Subtraction Operator " Url="html/f91cf7e8-2410-f2e4-8083-b96cf8a4489e.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="993d7704-eb16-4ebc-b1fd-0287ac0268cb" Title="Vector Class" Url="html/a06361db-00e4-37f5-d5ec-2d4840472bd6.htm">
+      <HelpTOCNode Title="Vector Constructor " Url="html/2e295173-040b-2a2d-c88c-1a11ebf1709f.htm" />
+      <HelpTOCNode Title="Vector Methods" Url="html/05743ded-30a1-34b3-40de-05eced28d775.htm" />
+      <HelpTOCNode Title="Vector Properties" Url="html/6a809fb2-127e-d117-bd1d-4af304801baf.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

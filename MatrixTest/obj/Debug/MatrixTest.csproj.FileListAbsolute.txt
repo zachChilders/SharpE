@@ -1,0 +1,9 @@
+c:\Users\Zach\documents\visual studio 2013\Projects\Sharpe\MatrixTest\bin\Debug\MatrixTest.exe.config
+c:\Users\Zach\documents\visual studio 2013\Projects\Sharpe\MatrixTest\bin\Debug\MatrixTest.exe
+c:\Users\Zach\documents\visual studio 2013\Projects\Sharpe\MatrixTest\bin\Debug\MatrixTest.pdb
+c:\Users\Zach\documents\visual studio 2013\Projects\Sharpe\MatrixTest\bin\Debug\Sharpe.dll
+c:\Users\Zach\documents\visual studio 2013\Projects\Sharpe\MatrixTest\bin\Debug\Sharpe.pdb
+c:\Users\Zach\documents\visual studio 2013\Projects\Sharpe\MatrixTest\obj\Debug\MatrixTest.csprojResolveAssemblyReference.cache
+c:\Users\Zach\documents\visual studio 2013\Projects\Sharpe\MatrixTest\obj\Debug\MatrixTest.exe
+c:\Users\Zach\documents\visual studio 2013\Projects\Sharpe\MatrixTest\obj\Debug\MatrixTest.pdb
+c:\Users\Zach\documents\visual studio 2013\Projects\Sharpe\MatrixTest\bin\Debug\Sharpe.xml
