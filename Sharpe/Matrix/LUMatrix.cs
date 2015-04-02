@@ -21,10 +21,8 @@ namespace Sharpe.Matrix
         public LUMatrix(Matrix m)
         {
             Matrix U = new Matrix(m.NumRows, m.NumCols);
-            Console.WriteLine(m.ToString());
             //Begin a Decomposition.
-            Queue<Number> Lower = new Queue<Number>();
-
+            Queue<Number> lower = new Queue<Number>();
             //Copy the first row, it remains unchanged
             U[0] = m[0];
             for (int i = 1; i < m.NumRows; i++)
@@ -32,41 +30,44 @@ namespace Sharpe.Matrix
                 for (int j = 0; j < i; j++)
                 {
                     //Get the number we're supposed to scale by
-                    Number scalar = m[i][j] / m[i - 1][j];
-                     //Enqueue the number for later use
-                    Lower.Enqueue(scalar);
-                    //Perform the scale  
-                    Number[] scaled = Matrix.Scale(m[i - 1], scalar);
-                    //Subtract
-                    U[i] = Matrix.RowSubtract(m[i], scaled);
+                    Number scalar = null;
+                    Number[] scaled = null;
+
+                    if (j > 0)
+                    {
+                        scalar = U[i][j] / U[i - 1][j];
+
+                        //Enqueue the number for later use
+                        lower.Enqueue(scalar);
+                        //Perform the scale  
+                        scaled = Matrix.Scale(U[i - 1], scalar);
+
+                        U[i] = Matrix.RowSubtract(U[i], scaled);
+                    }
+
+                    else
+                    {
+                        scalar = m[i][j] / m[0][j];
+                        //Enqueue the number for later use
+                        lower.Enqueue(scalar);
+                        //Perform the scale  
+                        scaled = Matrix.Scale(m[0], scalar);
+
+                        U[i] = Matrix.RowSubtract(m[i], scaled);
+                    }
+
                 }
             }
 
-            for (int j = 0; j < m.NumCols; j++)
+            Matrix L = new IdentityMatrix(m.NumRows);
+            int count = 1;
+            while (lower.Count > 0)
             {
-                //Get the number we're supposed to scale by
-                Number scalar = m[m.NumRows - 1][j] / m[m.NumRows - 2][j];
-                //Enqueue the number for later use
-                Lower.Enqueue(scalar);
-                //Perform the scale  
-                Number[] scaled = Matrix.Scale(m[m.NumRows - 2], scalar);
-                //Subtract
-                U[m.NumRows - 1] = Matrix.RowSubtract(m[m.NumRows - 1], scaled);
+                L[count][count] = lower.Dequeue();
+                count++;
             }
 
-            Console.Read();
-            Console.WriteLine(U.ToString());
-
-            Matrix L = new IdentityMatrix(m.NumRows);
-            //int count = 1;
-            //while (Lower.Count > 0)
-            //{
-            //    L[count+1][count] = Lower.Dequeue();
-            //    count++;
-            //}
-
             LU = Tuple.Create<Matrix, Matrix>(L, U);
-            Console.Read();
         }
 
         /// <summary>

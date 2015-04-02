@@ -146,13 +146,16 @@ namespace Sharpe.Numbers
         /// <returns>The quotient of A and B.</returns>
         public static Number operator /(Number a, Number b)
         {
+
+            Number n = new Number();
             if (b.real == 0)
             {
-                Console.WriteLine(b.ToString());
+                n.real = Double.NaN;
             }
-            Number n = new Number();
-            n.real = a.real / b.real;
-            //n.imaginary = a.imaginary / b.imaginary;
+            else
+            {
+                n.real = a.real / b.real;
+            }
             return n;
         }
 
