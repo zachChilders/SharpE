@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sharpe</name>
+    </assembly>
+    <members>
+        <member name="T:Sharpe.Matrix.LUMatrix">
+            <summary>
+            Lower Upper Matrix class for decomposition
+            </summary>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.#ctor(Sharpe.Matrix.Matrix)">
+            <summary>
+            
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.GetUpper">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.GetLower">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.Determinant">
+            <summary>
+            Calculate the determinant of the matrix
+            </summary>
+            <returns>The determinant</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.Inverse">
+            <summary>
+            Generate the Inverse of a matrix
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sharpe.Numbers.ComplexNumber">
+            <summary>
+            A Class to represent Complex numbers. 
+            Contains a real and imaginary portion.
+            </summary>
+        </member>
+        <member name="F:Sharpe.Numbers.ComplexNumber.real">
+            <summary>
+            Real component of a complex number.
+            </summary>
+        </member>
+        <member name="F:Sharpe.Numbers.ComplexNumber.imaginary">
+            <summary>
+            Imaginary component of a complex number.
+            </summary>
+        </member>
+        <member name="M:Sharpe.Numbers.ComplexNumber.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:Sharpe.Numbers.ComplexNumber.#ctor(System.Double,System.Double)">
+            <summary>
+            Sets default values of a ComplexNumber.
+            </summary>
+            <param name="r">Real Number</param>
+            <param name="i">Imaginary Number</param>
+        </member>
+        <member name="M:Sharpe.Numbers.ComplexNumber.op_Addition(Sharpe.Numbers.ComplexNumber,Sharpe.Numbers.Number)">
+            <summary>
+            Adds two ComplexNumbers.
+            </summary>
+            <param name="A">A ComplexNumber</param>
+            <param name="B">A ComplexNumber</param>
+            <returns>The sum of two ComplexNumbers.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.ComplexNumber.op_Subtraction(Sharpe.Numbers.ComplexNumber,Sharpe.Numbers.Number)">
+            <summary>
+            Subtracts two ComplexNumbers.
+            </summary>
+            <param name="A">A ComplexNumber</param>
+            <param name="B">A ComplexNumber</param>
+            <returns>The difference of two ComplexNumbers.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.ComplexNumber.op_Multiply(Sharpe.Numbers.ComplexNumber,Sharpe.Numbers.Number)">
+            <summary>
+            Multiplies two ComplexNumbers.
+            </summary>
+            <param name="A">A ComplexNumber</param>
+            <param name="B">A ComplexNumber</param>
+            <returns>The product of two ComplexNumbers.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.ComplexNumber.op_Division(Sharpe.Numbers.ComplexNumber,Sharpe.Numbers.Number)">
+            <summary>
+            Divides two ComplexNumbers.
+            </summary>
+            <param name="A">A ComplexNumber</param>
+            <param name="B">A ComplexNumber with Non-Zero components.</param>
+            <returns>The quotient of two ComplexNumbers.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.ComplexNumber.ToString">
+            <summary>
+            Converts ComplexNumber to a String.
+            </summary>
+            <returns>The String representation of a ComplexNumber.</returns>
+        </member>
+        <member name="T:Sharpe.Matrix.IdentityMatrix">
+            <summary>
+            An Identity Matrix class for convenience.
+            </summary>
+        </member>
+        <member name="T:Sharpe.Matrix.Matrix">
+            <summary>
+            A class representing a rectangular matrix.
+            </summary>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Basic Constructor.  Makes m x n Matrix
+            </summary>
+            <param name="m"></param>
+            <param name="n"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.#ctor(System.Int32[],System.Int32)">
+            <summary>
+            Copy data[] into matrix form.  Must specify the width of rows.
+            
+            This works, but should pad instead of cut off.
+            </summary>
+            <param name="data"></param>
+            <param name="RowWidth"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.#ctor(System.Double[],System.Int32)">
+            <summary>
+            Copy data[] into matrix form.  Must specify the width of rows.
+            
+            This works, but should pad instead of cut off.
+            </summary>
+            <param name="data"></param>
+            <param name="RowWidth"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.#ctor(System.Single[],System.Int32)">
+            <summary>
+            Copy data[] into matrix form.  Must specify the width of rows.
+            
+            This works, but should pad instead of cut off.
+            </summary>
+            <param name="data"></param>
+            <param name="RowWidth"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.#ctor(Sharpe.Numbers.Number[][])">
+            <summary>
+            Directly Copy a 2D array into a Matrix. This may need
+            to be overloaded for each copy.
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.ToString">
+            <summary>
+            Allows Printing in Pretty Form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.Transpose">
+            <summary>
+            Rewrites Columns as Rows.
+            </summary>
+            <returns>Transposed Matrix</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.Determinant">
+            <summary>
+            Calculate the Determinant of a matrix.
+            </summary>
+            <returns>The Determinant</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.Diagonal">
+            <summary>
+            Returns the Main Diagonal of the matrix.
+            </summary>
+            <returns>An array of Numbers along the Diagonal.</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.Diagonalize">
+            <summary>
+            Sets every number not on the Main Diagonal of a matrix to zero.
+            </summary>
+            <returns>The Diagonalized matrix.</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.op_Addition(Sharpe.Matrix.Matrix,Sharpe.Matrix.Matrix)">
+            <summary>
+            Adds two matrices.  Throws Invalid Exception if sizes aren't equal.
+            </summary>
+            <param name="A">First Matrix</param>
+            <param name="B">Second Matrx</param>
+            <returns>Resultant Matrix </returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.op_Subtraction(Sharpe.Matrix.Matrix,Sharpe.Matrix.Matrix)">
+            <summary>
+            Subtracts two matrices.  Throws Invalid Exception if sizes aren't equal.
+            </summary>
+            <param name="A">First Matrix</param>
+            <param name="B">Second Matrx</param>
+            <returns>Resultant Matrix </returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.op_Multiply(Sharpe.Matrix.Matrix,Sharpe.Numbers.Number)">
+            <summary>
+            Multiply by a scalar.
+            </summary>
+            <param name="A"></param>
+            <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.op_Multiply(Sharpe.Matrix.Matrix,Sharpe.Matrix.Matrix)">
+            <summary>
+            Multiplies two matrices, if possible.  
+            </summary>
+            <param name="A"></param>
+            <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.op_Multiply(Sharpe.Matrix.Matrix,Sharpe.Matrix.Vector)">
+            <summary>
+            Multiplication overloaded to accept a standard Vector.
+            </summary>
+            <param name="A"></param>
+            <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.dot(Sharpe.Numbers.Number[],Sharpe.Numbers.Number[])">
+            <summary>
+            Essentially a dot product
+            </summary>
+            <param name="A"></param>
+            <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.Scale(Sharpe.Numbers.Number[],Sharpe.Numbers.Number)">
+            <summary>
+            Scales a set of numbers by a scalar.
+            </summary>
+            <param name="Vector">A Row, Column, or Vector.</param>
+            <param name="Scalar">A scale factor.</param>
+            <returns>The scaled vector</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.RowSubtract(Sharpe.Numbers.Number[],Sharpe.Numbers.Number[])">
+            <summary>
+            Subtracts Row2 from Row1.
+            </summary>
+            <param name="Row1">A row, column, or Vector</param>
+            <param name="Row2">A row, column, or Vector</param>
+            <returns>Row2 - Row1.</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.GetColumn(System.Int32)">
+            <summary>
+            Returns a column at given index
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.SetColumn(Sharpe.Numbers.Number[],System.Int32)">
+            <summary>
+            Sets a column to an array of numbers
+            </summary>
+            <param name="data"></param>
+            <param name="index"></param>
+        </member>
+        <member name="P:Sharpe.Matrix.Matrix.NumRows">
+            <summary>
+            Number of Rows.
+            </summary>
+        </member>
+        <member name="P:Sharpe.Matrix.Matrix.NumCols">
+            <summary>
+            Number of Columns.
+            </summary>
+        </member>
+        <member name="P:Sharpe.Matrix.Matrix.Item(System.Int32)">
+            <summary>
+            Allows for [][] indexing of matrices. Must be 0 based.
+            </summary>
+            <param name="i">Index</param>
+            <returns>Matrix Row i</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.IdentityMatrix.#ctor(System.Int32)">
+            <summary>
+            Creates an NxN Identity Matrix
+            </summary>
+            <param name="n">Number of dimensions.</param>
+        </member>
+        <member name="T:Sharpe.NamespaceDoc">
+            <summary>
+            A BLAS for C# emphasizing usability without sacrificing 
+            performance.
+            </summary>
+        </member>
+        <member name="T:Sharpe.Numbers.Number">
+            <summary>
+            Number is a generic class that allows any numerical data type to 
+            be converted to any other numerical data type.  Every number is implicitly
+            converted to a Number when it enters a matrix.
+            </summary>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Implicit(Sharpe.Numbers.Number)~System.Double">
+            <summary>
+            Convert from Number to Double.
+            </summary>
+            <param name="n">Any Number</param>
+            <returns>A Double</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Implicit(System.Double)~Sharpe.Numbers.Number">
+            <summary>
+            Converts from Double to Number.
+            </summary>
+            <param name="d">Any Double</param>
+            <returns>A Number</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Implicit(Sharpe.Numbers.Number)~System.Int64">
+            <summary>
+            Converts from Number to Int64.
+            </summary>
+            <param name="n">Any Number</param>
+            <returns>An Integer</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Implicit(System.Int64)~Sharpe.Numbers.Number">
+            <summary>
+            Converts from Int64 to Number
+            </summary>
+            <param name="i">Any Integer</param>
+            <returns>A Number</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Implicit(Sharpe.Numbers.Number)~Sharpe.Numbers.ComplexNumber">
+            <summary>
+            Converts from Number to ComplexNumber.
+            </summary>
+            <param name="n">A Number</param>
+            <returns>A Complex Number</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Implicit(Sharpe.Numbers.ComplexNumber)~Sharpe.Numbers.Number">
+            <summary>
+            Converts from ComplexNumber to Number.
+            </summary>
+            <param name="cn">A ComplexNumber</param>
+            <returns>A Number</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Implicit(Sharpe.Numbers.Number)~System.Single">
+            <summary>
+            Converts from Number to float.  May incur loss of precision.
+            </summary>
+            <param name="n">A Number</param>
+            <returns>A float.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Addition(Sharpe.Numbers.Number,Sharpe.Numbers.Number)">
+            <summary>
+            Adds two Numbers. 
+            </summary>
+            <param name="a">A Number</param>
+            <param name="b">A Number</param>
+            <returns>Sum of A and B</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Subtraction(Sharpe.Numbers.Number,Sharpe.Numbers.Number)">
+            <summary>
+            Subtracts two numbers.
+            </summary>
+            <param name="a">A Number</param>
+            <param name="b">A Number</param>
+            <returns>Difference between A and B</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Multiply(Sharpe.Numbers.Number,Sharpe.Numbers.Number)">
+            <summary>
+            Multiplies two numbers.
+            </summary>
+            <param name="a">A Number</param>
+            <param name="b">A Number</param>
+            <returns>The product of A and B</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Division(Sharpe.Numbers.Number,Sharpe.Numbers.Number)">
+            <summary>
+            Divides two numbers.  
+            </summary>
+            <param name="a">A Number</param>
+            <param name="b">A Non-Zero Number</param>
+            <returns>The quotient of A and B.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Equality(Sharpe.Numbers.Number,Sharpe.Numbers.Number)">
+            <summary>
+            Compares two Numbers.
+            </summary>
+            <param name="a">A Number</param>
+            <param name="b">A Number</param>
+            <returns>Equality of two numbers.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_Inequality(Sharpe.Numbers.Number,Sharpe.Numbers.Number)">
+            <summary>
+            Compares two Numbers.
+            </summary>
+            <param name="a">A Number</param>
+            <param name="b">A Number</param>
+            <returns>Equality of two numbers.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_LessThan(Sharpe.Numbers.Number,Sharpe.Numbers.Number)">
+            <summary>
+            Compares two Numbers.
+            </summary>
+            <param name="a">A Number</param>
+            <param name="b">A Number</param>
+            <returns>A is less than B.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_GreaterThan(Sharpe.Numbers.Number,Sharpe.Numbers.Number)">
+            <summary>
+            Compares two Numbers.
+            </summary>
+            <param name="a">A Number</param>
+            <param name="b">A Number</param>
+            <returns>A is greater than B.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_LessThanOrEqual(Sharpe.Numbers.Number,Sharpe.Numbers.Number)">
+            <summary>
+            Compares two Numbers.
+            </summary>
+            <param name="a">A Number</param>
+            <param name="b">A Number</param>
+            <returns>A is less than or equal to B.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.op_GreaterThanOrEqual(Sharpe.Numbers.Number,Sharpe.Numbers.Number)">
+            <summary>
+            Compares two Numbers.
+            </summary>
+            <param name="a">A Number</param>
+            <param name="b">A Number</param>
+            <returns>A is greater than or equal to B.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.Equals(System.Object)">
+            <summary>
+            Compares a reference of a Number and another object.
+            </summary>
+            <param name="obj">An object</param>
+            <returns>If the reference is the same as our Number</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.GetHashCode">
+            <summary>
+            Hashes a Number.
+            </summary>
+            <returns>Hash of a Number.</returns>
+        </member>
+        <member name="M:Sharpe.Numbers.Number.ToString">
+            <summary>
+            Converts to String.
+            </summary>
+            <returns>The String representation of a Number.</returns>
+        </member>
+        <member name="T:Sharpe.Matrix.Vector">
+            <summary>
+            An n-Dimensional Vector
+            </summary>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.#ctor(System.Int32)">
+            <summary>
+            Creates an n-Dimensional Vector.
+            </summary>
+            <param name="n">Number of dimensions.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,5 @@
+C:\Users\Zach\Documents\visual studio 2013\Projects\Sharpe\Sharpe\bin\Debug\Sharpe.XML
+C:\Users\Zach\Documents\visual studio 2013\Projects\Sharpe\Sharpe\bin\Debug\Sharpe.dll
+C:\Users\Zach\Documents\visual studio 2013\Projects\Sharpe\Sharpe\bin\Debug\Sharpe.pdb
+C:\Users\Zach\Documents\visual studio 2013\Projects\Sharpe\Sharpe\obj\Debug\Sharpe.dll
+C:\Users\Zach\Documents\visual studio 2013\Projects\Sharpe\Sharpe\obj\Debug\Sharpe.pdb
