@@ -59,6 +59,14 @@ namespace MatrixTest
             Matrix lower = lu.GetLower();
             Console.WriteLine(lower.ToString());
 
+            Console.WriteLine("Testing Decomposition");
+            Matrix result = lower * upper;
+            Console.WriteLine(result.ToString());
+
+            Console.WriteLine("Determining Determinant");
+            Number diagonal = lu.Determinant();
+            Console.WriteLine(diagonal.ToString());
+
             Console.Read();
         }
     }

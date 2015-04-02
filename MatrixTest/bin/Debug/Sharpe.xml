@@ -27,6 +27,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.Determinant">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Sharpe.Numbers.ComplexNumber">
             <summary>
             A Class to represent Complex numbers. 

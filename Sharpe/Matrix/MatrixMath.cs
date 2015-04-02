@@ -73,7 +73,5 @@ namespace Sharpe.Matrix
             return diagonalized;
         }
 
-        
-
     }
 }

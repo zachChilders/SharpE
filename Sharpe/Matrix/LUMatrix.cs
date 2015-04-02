@@ -60,11 +60,20 @@ namespace Sharpe.Matrix
             }
 
             Matrix L = new IdentityMatrix(m.NumRows);
-            int count = 1;
-            while (lower.Count > 0)
+
+            for (int i = 0; i < m.NumRows; i ++)
             {
-                L[count][count] = lower.Dequeue();
-                count++;
+                for (int j = 0; j < m.NumCols; j++)
+                {
+                    if (j < i)
+                    {
+                        L[i][j] = lower.Dequeue();
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
             }
 
             LU = Tuple.Create<Matrix, Matrix>(L, U);
@@ -86,6 +95,21 @@ namespace Sharpe.Matrix
         public Matrix GetLower()
         {
             return LU.Item1;
+        }
+
+        /// <summary>
+        /// Calculate the determinant of the matrix
+        /// </summary>
+        /// <returns>The determinant</returns>
+        public Number Determinant()
+        {
+            Number[] diagonal = LU.Item2.Diagonal();
+            Number trace = 1.0;
+            foreach (Number n in diagonal)
+            {
+                trace *= n;
+            }
+            return trace;
         }
     }
 }
