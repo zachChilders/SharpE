@@ -260,7 +260,7 @@ namespace Sharpe.Numbers
             if (!(obj is Number)) return false;
 
             Number p = (Number)obj;
-            return real == p.real & imaginary == p.imaginary;
+            return real == p.real && imaginary == p.imaginary;
         }
 
         /// <summary>
@@ -278,14 +278,14 @@ namespace Sharpe.Numbers
         /// <returns>The String representation of a Number.</returns>
         public new String ToString()
         {
-            if (imaginary != 0.0)
+            if (!Double.IsNaN(imaginary))
             {
                 ComplexNumber cn = new ComplexNumber(real, imaginary);
                 return cn.ToString();
             }
             else
             {
-                return real.ToString();
+                return real.ToString("N");
             }
         }
 

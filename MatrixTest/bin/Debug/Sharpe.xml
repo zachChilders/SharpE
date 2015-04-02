@@ -29,7 +29,13 @@
         </member>
         <member name="M:Sharpe.Matrix.LUMatrix.Determinant">
             <summary>
-            
+            Calculate the determinant of the matrix
+            </summary>
+            <returns>The determinant</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.Inverse">
+            <summary>
+            Generate the Inverse of a matrix
             </summary>
             <returns></returns>
         </member>
@@ -250,6 +256,13 @@
             </summary>
             <param name="index"></param>
             <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.SetColumn(Sharpe.Numbers.Number[],System.Int32)">
+            <summary>
+            Sets a column to an array of numbers
+            </summary>
+            <param name="data"></param>
+            <param name="index"></param>
         </member>
         <member name="P:Sharpe.Matrix.Matrix.NumRows">
             <summary>

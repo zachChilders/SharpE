@@ -111,7 +111,7 @@ namespace Sharpe.Numbers
         {
             StringBuilder complex = new StringBuilder();
             complex.Append(real.ToString());
-            complex.Append(this.imaginary >= 0.0 ? "+" : "");
+            complex.Append(!Double.IsNaN(this.imaginary) ? "+" : "");
             complex.Append(imaginary.ToString());
             complex.Append("i");
             return complex.ToString();

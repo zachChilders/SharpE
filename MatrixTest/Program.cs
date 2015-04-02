@@ -46,7 +46,10 @@ namespace MatrixTest
             Matrix transposeMatrix = multiplyMatrix.Transpose();
             Console.WriteLine(transposeMatrix.ToString());
 
-            Console.WriteLine("Decomposing Matrix");
+            Console.WriteLine("================");
+            Console.WriteLine("LU DECOMPOSITION");
+            Console.WriteLine("================");
+
             int[] arr2 = { 25, 5, 1, 64, 8, 1, 144, 12, 1 };
             Matrix pre = new Matrix(arr2, 3);
             LUMatrix lu = new LUMatrix(pre);
