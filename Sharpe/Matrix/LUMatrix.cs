@@ -14,12 +14,17 @@ namespace Sharpe.Matrix
     {
         private Tuple<Matrix, Matrix> LU;
 
+        //This is used for 
+        private IdentityMatrix id;
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="m"></param>
         public LUMatrix(Matrix m)
         {
+            id = new IdentityMatrix(m.NumRows);
+
             Matrix U = new Matrix(m.NumRows, m.NumCols);
             //Begin a Decomposition.
             Queue<Number> lower = new Queue<Number>();
@@ -76,7 +81,7 @@ namespace Sharpe.Matrix
                 }
             }
 
-            LU = Tuple.Create<Matrix, Matrix>(L, U);
+            LU = Tuple.Create(L, U);
         }
 
         /// <summary>
@@ -104,12 +109,24 @@ namespace Sharpe.Matrix
         public Number Determinant()
         {
             Number[] diagonal = LU.Item2.Diagonal();
-            Number trace = 1.0;
-            foreach (Number n in diagonal)
-            {
-                trace *= n;
-            }
-            return trace;
+            return diagonal.Aggregate<Number, Number>(1.0, (current, n) => current*n);
         }
+
+        public Matrix Inverse()
+        {
+            IdentityMatrix B = new IdentityMatrix(id.NumCols);
+            for (int i = 0; i < id.NumCols; i++)
+            {
+
+                //L * z = C
+                //U * C = B
+                for (int j = 0; j < id.NumCols; j++)
+                {
+                    
+                }
+            }
+            return id;
+        }
+
     }
 }

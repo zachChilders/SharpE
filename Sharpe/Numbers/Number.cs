@@ -13,8 +13,8 @@ namespace Sharpe.Numbers
     /// </summary>
     public class Number
     {
-        internal Double real = 0.0;
-        internal Double imaginary = 0.0;
+        internal Double real = Double.NaN;
+        internal Double imaginary = Double.NaN;
 
         /// <summary>
         /// Convert from Number to Double.
@@ -148,13 +148,10 @@ namespace Sharpe.Numbers
         {
 
             Number n = new Number();
-            if (b.real == 0)
-            {
-                n.real = Double.NaN;
-            }
-            else
+            if ((b.real != 0.0) && (b.imaginary != 0.0))
             {
                 n.real = a.real / b.real;
+                n.imaginary = a.imaginary / b.imaginary;
             }
             return n;
         }

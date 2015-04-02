@@ -30,7 +30,8 @@ namespace Sharpe.Matrix
         /// <returns>The Determinant</returns>
         public Number Determinant()
         {
-            throw new NotImplementedException();
+            LUMatrix lu = new LUMatrix(this);
+            return lu.Determinant();
         }
 
         /// <summary>

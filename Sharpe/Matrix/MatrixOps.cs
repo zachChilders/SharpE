@@ -177,6 +177,7 @@ namespace Sharpe.Matrix
             }
             return resultant;
         }
+     
         /// <summary>
         /// Returns a column at given index
         /// </summary>
@@ -190,6 +191,23 @@ namespace Sharpe.Matrix
                 column[i] = matrix[i][index];
             }
             return column;
+        }
+
+        /// <summary>
+        /// Sets a column to an array of numbers
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="index"></param>
+        public void SetColumn(Number[] data, int index)
+        {
+            if (data.Length != NumRows)
+            {
+                throw new InvalidOperationException();
+            }
+            for (int i = 0; i < NumRows; i++)
+            {
+                matrix[index][i] = data[i];
+            }
         }
 
         /// <summary>

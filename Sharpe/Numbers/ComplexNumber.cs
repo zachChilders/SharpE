@@ -27,8 +27,8 @@ namespace Sharpe.Numbers
         /// </summary>
         public ComplexNumber()
         {
-            real = 0.0;
-            imaginary = 0.0;
+            real = Double.NaN;
+            imaginary = Double.NaN;
         }
 
         /// <summary>
