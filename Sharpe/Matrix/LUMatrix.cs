@@ -112,8 +112,15 @@ namespace Sharpe.Matrix
             return diagonal.Aggregate<Number, Number>(1.0, (current, n) => current*n);
         }
 
+        /// <summary>
+        /// Generate the Inverse of a matrix
+        /// </summary>
+        /// <returns></returns>
         public Matrix Inverse()
         {
+            throw new NotImplementedException();
+            //L Z = C
+            //U X = Z
             IdentityMatrix B = new IdentityMatrix(id.NumCols);
             for (int i = 0; i < id.NumCols; i++)
             {
