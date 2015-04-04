@@ -118,18 +118,32 @@ namespace Sharpe.Matrix
         /// <returns></returns>
         public Matrix Inverse()
         {
-            throw new NotImplementedException();
-            //L Z = C
-            //U X = Z
-            IdentityMatrix B = new IdentityMatrix(id.NumCols);
+            //L d = b
+            //U x = d
+            IdentityMatrix Identity = new IdentityMatrix(id.NumCols);
             for (int i = 0; i < id.NumCols; i++)
             {
+                //The current column in the Identity Matrix
+                Number[] b = Identity.GetColumn(i);
 
-                //L * z = C
-                //U * C = B
-                for (int j = 0; j < id.NumCols; j++)
+                //Unknowns we need to solve for.
+                Number[] d = new Number[b.Length];
+                Number[] x = new Number[b.Length];
+
+                //Forward Substitution
+                d[0] = b[0];
+                for (int j = 1; j < id.NumRows; j++)
                 {
                     
+
+
+                }
+                //Backward Substitution
+                for (int j = 0; j < id.NumRows; j++)
+                {
+                    
+
+
                 }
             }
             return id;

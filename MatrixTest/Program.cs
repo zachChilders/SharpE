@@ -54,6 +54,9 @@ namespace MatrixTest
             Matrix pre = new Matrix(arr2, 3);
             LUMatrix lu = new LUMatrix(pre);
 
+            Console.WriteLine("Original Matrix");
+            Console.WriteLine(pre.ToString());
+
             Console.WriteLine("Upper Matrix");
             Matrix upper = lu.GetUpper();
             Console.WriteLine(upper.ToString());
