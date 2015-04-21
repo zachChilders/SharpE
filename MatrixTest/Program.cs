@@ -71,7 +71,36 @@ namespace MatrixTest
 
             Console.WriteLine("Determining Determinant");
             Number diagonal = lu.Determinant();
-            Console.WriteLine(diagonal.ToString());
+            Console.WriteLine(diagonal.ToString()+"\n");
+
+            Console.WriteLine("Vector ops");
+            Vector v = new Vector(3);
+            v[0] = 1.0;
+            v[1] = 1.0;
+            v[2] = 1.0;
+            int[] arr3 = {2, -12, 1, -5};
+            Matrix vMatrix = new Matrix(arr3, 2);
+            Vector vResult = vMatrix * v;
+            Console.WriteLine(vResult.ToString());
+
+            Vector test = new Vector(2);
+            test[0] = -10;
+            test[1] = -4;
+            EigenSolver e = new EigenSolver(vMatrix);
+            Console.WriteLine("Dominant Eigen");
+            Console.WriteLine(e.GetEigenVector().ToString());
+
+            Console.WriteLine("Dominant Eigenvalue");
+            Console.WriteLine(e.GetEigenValue());
+
+            //Inverse is a little broken.
+            //Console.WriteLine("Finding Inverse");
+            //Matrix inverse = lu.Inverse();
+            //Console.WriteLine(inverse.ToString());
+
+            //Console.WriteLine("Testing Inverse");
+            //result = pre * inverse;
+            //Console.WriteLine(result.ToString());
 
             Console.Read();
         }

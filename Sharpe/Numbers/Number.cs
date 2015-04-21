@@ -13,8 +13,8 @@ namespace Sharpe.Numbers
     /// </summary>
     public class Number
     {
-        internal Double real = Double.NaN;
-        internal Double imaginary = Double.NaN;
+        public Double real = Double.NaN;
+        public Double imaginary = Double.NaN;
 
         /// <summary>
         /// Convert from Number to Double.
@@ -186,7 +186,7 @@ namespace Sharpe.Numbers
         /// <returns>A is less than B.</returns>
         public static Boolean operator <(Number a, Number b)
         {
-            if ((a.imaginary != 0.0) || (b.imaginary != 0.0))
+            if ((!double.IsNaN(a.imaginary)) || (!double.IsNaN(b.imaginary)))
             {
                 throw new NotImplementedException();
             }
@@ -204,7 +204,7 @@ namespace Sharpe.Numbers
         /// <returns>A is greater than B.</returns>
         public static Boolean operator >(Number a, Number b)
         {
-            if ((a.imaginary != 0.0) || (b.imaginary != 0.0))
+            if ((!double.IsNaN(a.imaginary)) || (!double.IsNaN(b.imaginary)))
             {
                 throw new NotImplementedException();
             }
@@ -285,7 +285,7 @@ namespace Sharpe.Numbers
             }
             else
             {
-                return real.ToString("N");
+                return real.ToString();
             }
         }
 

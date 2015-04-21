@@ -8,7 +8,7 @@ using Sharpe.Numbers;
 namespace Sharpe.Matrix
 {
     /// <summary>
-    /// Lower Upper Matrix class for decomposition
+    /// lowerQueue Upper Matrix class for decomposition
     /// </summary>
     public class LUMatrix
     {
@@ -16,6 +16,9 @@ namespace Sharpe.Matrix
 
         //This is used for 
         private IdentityMatrix id;
+
+        private Queue<Number> lowerQueue = new Queue<Number>();
+        private Stack<Number> upperStack = new Stack<Number>(); 
 
         /// <summary>
         /// 
@@ -27,7 +30,6 @@ namespace Sharpe.Matrix
 
             Matrix U = new Matrix(m.NumRows, m.NumCols);
             //Begin a Decomposition.
-            Queue<Number> lower = new Queue<Number>();
             //Copy the first row, it remains unchanged
             U[0] = m[0];
             for (int i = 1; i < m.NumRows; i++)
@@ -43,7 +45,7 @@ namespace Sharpe.Matrix
                         scalar = U[i][j] / U[i - 1][j];
 
                         //Enqueue the number for later use
-                        lower.Enqueue(scalar);
+                        lowerQueue.Enqueue(scalar);
                         //Perform the scale  
                         scaled = Matrix.Scale(U[i - 1], scalar);
 
@@ -54,13 +56,19 @@ namespace Sharpe.Matrix
                     {
                         scalar = m[i][j] / m[0][j];
                         //Enqueue the number for later use
-                        lower.Enqueue(scalar);
+                        lowerQueue.Enqueue(scalar);
                         //Perform the scale  
                         scaled = Matrix.Scale(m[0], scalar);
-
                         U[i] = Matrix.RowSubtract(m[i], scaled);
                     }
 
+                }
+                for (int j = 0; j < m.NumRows; j++)
+                {
+                    if (j > i)
+                    {
+                        upperStack.Push(U[i][j]);
+                    }
                 }
             }
 
@@ -72,7 +80,8 @@ namespace Sharpe.Matrix
                 {
                     if (j < i)
                     {
-                        L[i][j] = lower.Dequeue();
+                        L[i][j] = lowerQueue.Dequeue();
+                        lowerQueue.Enqueue(L[i][j]);
                     }
                     else
                     {
@@ -134,15 +143,22 @@ namespace Sharpe.Matrix
                 d[0] = b[0];
                 for (int j = 1; j < id.NumRows; j++)
                 {
-                    
-
-
+                    d[j] = b[j];
+                    for (int k = 1; k < j; k++)
+                    {
+                        d[j] -= d[j - k] * lowerQueue.Dequeue();
+                    }
                 }
-                //Backward Substitution
-                for (int j = 0; j < id.NumRows; j++)
-                {
-                    
 
+                //Backward Substitution
+                x[id.NumRows - 1] = d[id.NumRows - 1] / upperStack.Pop();
+                for (int j = id.NumRows - 1; j >= 0; j--)
+                {
+                    b[j] = x[j];
+                    for (int k = 1; k < j; k++)
+                    {
+                        b[j] -= x[id.NumRows - k];
+                    }
 
                 }
             }

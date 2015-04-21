@@ -105,26 +105,7 @@ namespace Sharpe.Matrix
             return resultant;
         }
 
-        /// <summary>
-        /// Multiplication overloaded to accept a standard Vector.
-        /// </summary>
-        /// <param name="A"></param>
-        /// <param name="B"></param>
-        /// <returns></returns>
-        public static Matrix operator *(Matrix A, Vector B)
-        {
-            Matrix resultant = new Matrix(A.NumRows, A.NumCols);
 
-            for (int i = 0; i < A.NumRows; i++)
-            {
-                for (int j = 0; j < B.NumCols; j++)
-                {
-                    resultant[i][j] = dot(A[i], B[j]);
-                }
-            }
-
-            return resultant;
-        }
 
         /// <summary>
         /// Essentially a dot product

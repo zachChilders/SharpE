@@ -12,7 +12,7 @@ namespace Sharpe.Matrix
     /// </summary>
     public partial class Matrix
     {
-        private Number[][] matrix;
+        protected Number[][] matrix;
 
         /// <summary>
         /// Number of Rows.
