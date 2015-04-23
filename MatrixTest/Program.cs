@@ -47,6 +47,25 @@ namespace MatrixTest
             Console.WriteLine(transposeMatrix.ToString());
 
             Console.WriteLine("================");
+            Console.WriteLine("  EIGENSOLVER   ");
+            Console.WriteLine("================");
+
+            int[] vectorArray = { 1, 1, 1 };
+            Vector v = new Vector(vectorArray);
+
+            int[] arr3 = { 2, -12, 1, -5 };
+            Matrix vMatrix = new Matrix(arr3, 2);
+            Vector vResult = vMatrix * v;
+            Console.WriteLine(vResult.ToString());
+
+            EigenSolver e = new EigenSolver(vMatrix);
+            Console.WriteLine("Dominant Eigen");
+            Console.WriteLine(e.GetEigenVector().ToString());
+
+            Console.WriteLine("Dominant Eigenvalue");
+            Console.WriteLine(e.GetEigenValue() + "\n");
+
+            Console.WriteLine("================");
             Console.WriteLine("LU DECOMPOSITION");
             Console.WriteLine("================");
 
@@ -73,31 +92,15 @@ namespace MatrixTest
             Number diagonal = lu.Determinant();
             Console.WriteLine(diagonal.ToString() + "\n");
 
-            Console.WriteLine("Vector ops");
-            int[] vectorArray = { 1, 1, 1 };
-            Vector v = new Vector(vectorArray);
+            ////Inverse is a little broken.
+            //Console.WriteLine("Finding Inverse");
+            //Matrix inverse = lu.Inverse();
+            //Console.WriteLine(inverse.ToString());
 
-            int[] arr3 = { 2, -12, 1, -5 };
-            Matrix vMatrix = new Matrix(arr3, 2);
-            Vector vResult = vMatrix * v;
-            Console.WriteLine(vResult.ToString());
-
-            EigenSolver e = new EigenSolver(vMatrix);
-            Console.WriteLine("Dominant Eigen");
-            Console.WriteLine(e.GetEigenVector().ToString());
-
-            Console.WriteLine("Dominant Eigenvalue");
-            Console.WriteLine(e.GetEigenValue());
-
-            /*//Inverse is a little broken.
-            Console.WriteLine("Finding Inverse");
-            Matrix inverse = lu.Inverse();
-            Console.WriteLine(inverse.ToString());
-
-            Console.WriteLine("Testing Inverse");
-            result = pre * inverse;
-            Console.WriteLine(result.ToString());
-            */
+            //Console.WriteLine("Testing Inverse");
+            //result = pre * inverse;
+            //Console.WriteLine(result.ToString());
+            
 
             Console.Read();
         }

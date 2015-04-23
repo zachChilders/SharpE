@@ -81,28 +81,28 @@ namespace Sharpe.Matrix
         {
             get
             {
-                return this.matrix[i][0];
+                return matrix[i][0];
             }
             set
             {
-                this.matrix[i][0] = value;
+                matrix[i][0] = value;
             }
         }
 
         /// <summary>
         /// Multiplies two matrices, if possible.  
         /// </summary>
-        /// <param name="A"></param>
-        /// <param name="B"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
         /// <returns></returns>
-        public static Vector operator *(Matrix A, Vector B)
+        public static Vector operator *(Matrix a, Vector b)
         {
 
-            Vector resultant = new Vector(A.NumRows);
+            Vector resultant = new Vector(a.NumRows);
 
-            for (int i = 0; i < A.NumRows; i++)
+            for (int i = 0; i < a.NumRows; i++)
             {
-                resultant[i] = B.dot(A[i]);
+                resultant[i] = b.dot(a[i]);
             }
 
             return resultant;
@@ -111,17 +111,17 @@ namespace Sharpe.Matrix
         /// <summary>
         /// Vector * matrix
         /// </summary>
-        /// <param name="B"></param>
-        /// <param name="A"></param>
+        /// <param name="b"></param>
+        /// <param name="a"></param>
         /// <returns></returns>
-        public static Vector operator *(Vector B, Matrix A)
+        public static Vector operator *(Vector b, Matrix a)
         {
 
-            Vector resultant = new Vector(A.NumRows);
+            Vector resultant = new Vector(a.NumRows);
 
-            for (int i = 0; i < A.NumRows; i++)
+            for (int i = 0; i < a.NumRows; i++)
             {
-                resultant[i] = dot(B[i], A[i]);
+                resultant[i] = dot(b[i], a[i]);
             }
 
             return resultant;
@@ -130,16 +130,16 @@ namespace Sharpe.Matrix
         /// <summary>
         /// Matrix * Matrix
         /// </summary>
-        /// <param name="A"></param>
-        /// <param name="B"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
         /// <returns></returns>
-        public static Number operator *(Vector A, Vector B)
+        public static Number operator *(Vector a, Vector b)
         {
             Number resultant = 0.0;
 
-            for (int i = 0; i < A.NumRows; i++)
+            for (int i = 0; i < a.NumRows; i++)
             {
-                resultant += A[i]*B[i];
+                resultant += a[i]*b[i];
             }
             return resultant;
         }
@@ -147,15 +147,15 @@ namespace Sharpe.Matrix
         /// <summary>
         /// Scale down a vector
         /// </summary>
-        /// <param name="V"></param>
+        /// <param name="v"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public static Vector operator /(Vector V, Number n)
+        public static Vector operator /(Vector v, Number n)
         {
-            Vector resultant = new Vector(V.NumRows);
-            for (int i = 0; i < V.NumRows; i++)
+            Vector resultant = new Vector(v.NumRows);
+            for (int i = 0; i < v.NumRows; i++)
             {
-                resultant[i] = V[i]/n;
+                resultant[i] = v[i]/n;
             }
             return resultant;
         }
@@ -188,7 +188,7 @@ namespace Sharpe.Matrix
             Number resultant = 0.0;
             for (int i = 0; i < number1.Length; i++)
             {
-                resultant += (number1[i] * this.matrix[i][0]);
+                resultant += (number1[i] * matrix[i][0]);
             }
 
             return resultant;
@@ -202,13 +202,7 @@ namespace Sharpe.Matrix
         /// <returns></returns>
         private static Number dot(Number number1, Number[] number2)
         {
-            Number resultant = 0.0;
-            for (int i = 0; i < number2.Length; i++)
-            {
-                resultant += (number2[i] * number1);
-            }
-
-            return resultant;
+            return number2.Aggregate<Number, Number>(0.0, (current, t) => current + (t*number1));
         }
     }
 }

@@ -12,22 +12,22 @@ namespace Sharpe.Matrix
         /// <summary>
         /// Adds two matrices.  Throws Invalid Exception if sizes aren't equal.
         /// </summary>
-        /// <param name="A">First Matrix</param>
-        /// <param name="B">Second Matrx</param>
+        /// <param name="a">First Matrix</param>
+        /// <param name="b">Second Matrx</param>
         /// <returns>Resultant Matrix </returns>
-        public static Matrix operator +(Matrix A, Matrix B)
+        public static Matrix operator +(Matrix a, Matrix b)
         {
             //Check to make sure the operation is allowed first.
-            if ((A.NumRows != B.NumRows) || (A.NumCols != A.NumCols))
+            if ((a.NumRows != b.NumRows) || (a.NumCols != b.NumCols))
             {
                 throw new InvalidOperationException(); //Maybe this should be custom
             }
-            Matrix resultant = new Matrix(A.NumRows, B.NumCols);
-            for (int i = 0; i < A.NumCols; i++)
+            Matrix resultant = new Matrix(a.NumRows, b.NumCols);
+            for (int i = 0; i < a.NumCols; i++)
             {
-                for (int j = 0; j < A.NumRows; j++)
+                for (int j = 0; j < a.NumRows; j++)
                 {
-                    resultant[i][j] = A[i][j] + B[i][j];
+                    resultant[i][j] = a[i][j] + b[i][j];
                 }
             }
 
@@ -37,22 +37,22 @@ namespace Sharpe.Matrix
         /// <summary>
         /// Subtracts two matrices.  Throws Invalid Exception if sizes aren't equal.
         /// </summary>
-        /// <param name="A">First Matrix</param>
-        /// <param name="B">Second Matrx</param>
+        /// <param name="a">First Matrix</param>
+        /// <param name="b">Second Matrx</param>
         /// <returns>Resultant Matrix </returns>
-        public static Matrix operator -(Matrix A, Matrix B)
+        public static Matrix operator -(Matrix a, Matrix b)
         {
             //Check to make sure the operation is allowed first.
-            if ((A.NumRows != B.NumRows) || (A.NumCols != A.NumCols))
+            if ((a.NumRows != b.NumRows) || (a.NumCols != b.NumCols))
             {
                 throw new InvalidOperationException(); //Maybe this should be custom
             }
-            Matrix resultant = new Matrix(A.NumRows, B.NumCols);
-            for (int i = 0; i < A.NumCols; i++)
+            Matrix resultant = new Matrix(a.NumRows, b.NumCols);
+            for (int i = 0; i < a.NumCols; i++)
             {
-                for (int j = 0; j < A.NumRows; j++)
+                for (int j = 0; j < a.NumRows; j++)
                 {
-                    resultant[i][j] = A[i][j] - B[i][j];
+                    resultant[i][j] = a[i][j] - b[i][j];
                 }
             }
 
@@ -62,17 +62,17 @@ namespace Sharpe.Matrix
         /// <summary>
         /// Multiply by a scalar.
         /// </summary>
-        /// <param name="A"></param>
-        /// <param name="B"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
         /// <returns></returns>
-        public static Matrix operator *(Matrix A, Number B)
+        public static Matrix operator *(Matrix a, Number b)
         {
-            Matrix resultant = new Matrix(A.NumRows, A.NumCols);
-            for (int i = 0; i < A.NumRows; i++)
+            Matrix resultant = new Matrix(a.NumRows, a.NumCols);
+            for (int i = 0; i < a.NumRows; i++)
             {
-                for (int j = 0; j < A.NumCols; j++)
+                for (int j = 0; j < a.NumCols; j++)
                 {
-                    resultant[i][j] = A[i][j] * B;
+                    resultant[i][j] = a[i][j] * b;
                 }
             }
 
@@ -82,23 +82,23 @@ namespace Sharpe.Matrix
         /// <summary>
         /// Multiplies two matrices, if possible.  
         /// </summary>
-        /// <param name="A"></param>
-        /// <param name="B"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
         /// <returns></returns>
-        public static Matrix operator *(Matrix A, Matrix B)
+        public static Matrix operator *(Matrix a, Matrix b)
         {
-            if (A.NumCols != B.NumRows)
+            if (a.NumCols != b.NumRows)
             {
                 throw new InvalidOperationException();
             }
 
-            Matrix resultant = new Matrix(A.NumRows, B.NumCols);
+            Matrix resultant = new Matrix(a.NumRows, b.NumCols);
 
-            for (int i = 0; i < A.NumRows; i++)
+            for (int i = 0; i < a.NumRows; i++)
             {
-                for (int j = 0; j < B.NumCols; j++)
+                for (int j = 0; j < b.NumCols; j++)
                 {
-                    resultant[i][j] = dot(A[i], B.GetColumn(j));
+                    resultant[i][j] = Dot(a[i], b.GetColumn(j));
                 }
             }
 
@@ -110,15 +110,15 @@ namespace Sharpe.Matrix
         /// <summary>
         /// Essentially a dot product
         /// </summary>
-        /// <param name="A"></param>
-        /// <param name="B"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
         /// <returns></returns>
-        public static Number dot(Number[] A, Number[] B)
+        public static Number Dot(Number[] a, Number[] b)
         {
             Number sum = 0.0;
-            for (int i = 0; i < A.Length; i++)
+            for (int i = 0; i < a.Length; i++)
             {
-                sum += A[i] * B[i];
+                sum += a[i] * b[i];
             }
             return sum;
         }
@@ -126,15 +126,15 @@ namespace Sharpe.Matrix
         /// <summary>
         /// Scales a set of numbers by a scalar.
         /// </summary>
-        /// <param name="Vector">A Row, Column, or Vector.</param>
-        /// <param name="Scalar">A scale factor.</param>
+        /// <param name="vector">A Row, Column, or Vector.</param>
+        /// <param name="scalar">A scale factor.</param>
         /// <returns>The scaled vector</returns>
-        public static Number[] Scale(Number[] Vector, Number Scalar)
+        public static Number[] Scale(Number[] vector, Number scalar)
         {
-            Number[] resultant = new Number[Vector.Length];
-            for (int i = 0; i < Vector.Length; i++)
+            Number[] resultant = new Number[vector.Length];
+            for (int i = 0; i < vector.Length; i++)
             {
-                resultant [i] = Vector[i] * Scalar;
+                resultant [i] = vector[i] * scalar;
             }
             return resultant;
         }
@@ -142,19 +142,19 @@ namespace Sharpe.Matrix
         /// <summary>
         /// Subtracts Row2 from Row1.
         /// </summary>
-        /// <param name="Row1">A row, column, or Vector</param>
-        /// <param name="Row2">A row, column, or Vector</param>
+        /// <param name="row1">A row, column, or Vector</param>
+        /// <param name="row2">A row, column, or Vector</param>
         /// <returns>Row2 - Row1.</returns>
-        public static Number[] RowSubtract(Number[] Row1, Number[] Row2)
+        public static Number[] RowSubtract(Number[] row1, Number[] row2)
         {
-            if (Row1.Length != Row2.Length)
+            if (row1.Length != row2.Length)
             {
                 throw new InvalidOperationException();
             }
-            Number[] resultant = new Number[Row1.Length];
-            for (int i = 0; i < Row1.Length; i++)
+            Number[] resultant = new Number[row1.Length];
+            for (int i = 0; i < row1.Length; i++)
             {
-                resultant[i] = Row1[i] - Row2[i];
+                resultant[i] = row1[i] - row2[i];
             }
             return resultant;
         }

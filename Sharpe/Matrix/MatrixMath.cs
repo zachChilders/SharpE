@@ -18,7 +18,7 @@ namespace Sharpe.Matrix
             Matrix t = new Matrix(NumCols, NumRows);
             for (int i = 0; i < NumRows; i++)
             {
-                t[i] = this.GetColumn(i);
+                t[i] = GetColumn(i);
             }
 
             return t;

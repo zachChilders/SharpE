@@ -129,7 +129,7 @@
             This works, but should pad instead of cut off.
             </summary>
             <param name="data"></param>
-            <param name="RowWidth"></param>
+            <param name="rowWidth"></param>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.#ctor(System.Double[],System.Int32)">
             <summary>
@@ -138,7 +138,7 @@
             This works, but should pad instead of cut off.
             </summary>
             <param name="data"></param>
-            <param name="RowWidth"></param>
+            <param name="rowWidth"></param>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.#ctor(System.Single[],System.Int32)">
             <summary>
@@ -147,7 +147,7 @@
             This works, but should pad instead of cut off.
             </summary>
             <param name="data"></param>
-            <param name="RowWidth"></param>
+            <param name="rowWidth"></param>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.#ctor(Sharpe.Numbers.Number[][])">
             <summary>
@@ -190,56 +190,56 @@
             <summary>
             Adds two matrices.  Throws Invalid Exception if sizes aren't equal.
             </summary>
-            <param name="A">First Matrix</param>
-            <param name="B">Second Matrx</param>
+            <param name="a">First Matrix</param>
+            <param name="b">Second Matrx</param>
             <returns>Resultant Matrix </returns>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.op_Subtraction(Sharpe.Matrix.Matrix,Sharpe.Matrix.Matrix)">
             <summary>
             Subtracts two matrices.  Throws Invalid Exception if sizes aren't equal.
             </summary>
-            <param name="A">First Matrix</param>
-            <param name="B">Second Matrx</param>
+            <param name="a">First Matrix</param>
+            <param name="b">Second Matrx</param>
             <returns>Resultant Matrix </returns>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.op_Multiply(Sharpe.Matrix.Matrix,Sharpe.Numbers.Number)">
             <summary>
             Multiply by a scalar.
             </summary>
-            <param name="A"></param>
-            <param name="B"></param>
+            <param name="a"></param>
+            <param name="b"></param>
             <returns></returns>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.op_Multiply(Sharpe.Matrix.Matrix,Sharpe.Matrix.Matrix)">
             <summary>
             Multiplies two matrices, if possible.  
             </summary>
-            <param name="A"></param>
-            <param name="B"></param>
+            <param name="a"></param>
+            <param name="b"></param>
             <returns></returns>
         </member>
-        <member name="M:Sharpe.Matrix.Matrix.dot(Sharpe.Numbers.Number[],Sharpe.Numbers.Number[])">
+        <member name="M:Sharpe.Matrix.Matrix.Dot(Sharpe.Numbers.Number[],Sharpe.Numbers.Number[])">
             <summary>
             Essentially a dot product
             </summary>
-            <param name="A"></param>
-            <param name="B"></param>
+            <param name="a"></param>
+            <param name="b"></param>
             <returns></returns>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.Scale(Sharpe.Numbers.Number[],Sharpe.Numbers.Number)">
             <summary>
             Scales a set of numbers by a scalar.
             </summary>
-            <param name="Vector">A Row, Column, or Vector.</param>
-            <param name="Scalar">A scale factor.</param>
+            <param name="vector">A Row, Column, or Vector.</param>
+            <param name="scalar">A scale factor.</param>
             <returns>The scaled vector</returns>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.RowSubtract(Sharpe.Numbers.Number[],Sharpe.Numbers.Number[])">
             <summary>
             Subtracts Row2 from Row1.
             </summary>
-            <param name="Row1">A row, column, or Vector</param>
-            <param name="Row2">A row, column, or Vector</param>
+            <param name="row1">A row, column, or Vector</param>
+            <param name="row2">A row, column, or Vector</param>
             <returns>Row2 - Row1.</returns>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.GetColumn(System.Int32)">
@@ -302,6 +302,13 @@
             Computes the Raleigh quotient
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:Sharpe.Matrix.EigenSolver.epsilon">
+            <summary>
+            A tolerance value for eigen precision.
+            Bigger numbers give less precise eigens
+            Smaller numbers take longer to solve.
+            </summary>
         </member>
         <member name="T:Sharpe.NamespaceDoc">
             <summary>
@@ -503,31 +510,31 @@
             <summary>
             Multiplies two matrices, if possible.  
             </summary>
-            <param name="A"></param>
-            <param name="B"></param>
+            <param name="a"></param>
+            <param name="b"></param>
             <returns></returns>
         </member>
         <member name="M:Sharpe.Matrix.Vector.op_Multiply(Sharpe.Matrix.Vector,Sharpe.Matrix.Matrix)">
             <summary>
             Vector * matrix
             </summary>
-            <param name="B"></param>
-            <param name="A"></param>
+            <param name="b"></param>
+            <param name="a"></param>
             <returns></returns>
         </member>
         <member name="M:Sharpe.Matrix.Vector.op_Multiply(Sharpe.Matrix.Vector,Sharpe.Matrix.Vector)">
             <summary>
             Matrix * Matrix
             </summary>
-            <param name="A"></param>
-            <param name="B"></param>
+            <param name="a"></param>
+            <param name="b"></param>
             <returns></returns>
         </member>
         <member name="M:Sharpe.Matrix.Vector.op_Division(Sharpe.Matrix.Vector,Sharpe.Numbers.Number)">
             <summary>
             Scale down a vector
             </summary>
-            <param name="V"></param>
+            <param name="v"></param>
             <param name="n"></param>
             <returns></returns>
         </member>

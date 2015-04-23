@@ -15,20 +15,20 @@ namespace Sharpe.Numbers
         /// <summary>
         /// Real component of a complex number.
         /// </summary>
-        public double real;
+        public double Real;
 
         /// <summary>
         /// Imaginary component of a complex number.
         /// </summary>
-        public double imaginary;
+        public double Imaginary;
 
         /// <summary>
         /// Default Constructor
         /// </summary>
         public ComplexNumber()
         {
-            real = Double.NaN;
-            imaginary = Double.NaN;
+            Real = Double.NaN;
+            Imaginary = Double.NaN;
         }
 
         /// <summary>
@@ -38,68 +38,68 @@ namespace Sharpe.Numbers
         /// <param name="i">Imaginary Number</param>
         public ComplexNumber(double r, double i)
         {
-            real = r;
-            imaginary = i;
+            Real = r;
+            Imaginary = i;
         }
 
 
         /// <summary>
         /// Adds two ComplexNumbers.
         /// </summary>
-        /// <param name="A">A ComplexNumber</param>
-        /// <param name="B">A ComplexNumber</param>
+        /// <param name="a">A ComplexNumber</param>
+        /// <param name="b">A ComplexNumber</param>
         /// <returns>The sum of two ComplexNumbers.</returns>
-        public static ComplexNumber operator +(ComplexNumber A, Number B)
+        public static ComplexNumber operator +(ComplexNumber a, Number b)
         {
             ComplexNumber cn = new ComplexNumber();
-            cn.real = A.real + B.real;
-            cn.imaginary = A.imaginary + B.imaginary;
+            cn.Real = a.Real + b.Real;
+            cn.Imaginary = a.Imaginary + b.Imaginary;
             return cn;
         }
 
         /// <summary>
         /// Subtracts two ComplexNumbers.
         /// </summary>
-        /// <param name="A">A ComplexNumber</param>
-        /// <param name="B">A ComplexNumber</param>
+        /// <param name="a">A ComplexNumber</param>
+        /// <param name="b">A ComplexNumber</param>
         /// <returns>The difference of two ComplexNumbers.</returns>
-        public static ComplexNumber operator -(ComplexNumber A, Number B)
+        public static ComplexNumber operator -(ComplexNumber a, Number b)
         {
             ComplexNumber cn = new ComplexNumber();
-            cn.real = A.real - B.real;
-            cn.imaginary = A.imaginary - B.imaginary;
+            cn.Real = a.Real - b.Real;
+            cn.Imaginary = a.Imaginary - b.Imaginary;
             return cn;
         }
 
         /// <summary>
         /// Multiplies two ComplexNumbers.
         /// </summary>
-        /// <param name="A">A ComplexNumber</param>
-        /// <param name="B">A ComplexNumber</param>
+        /// <param name="a">A ComplexNumber</param>
+        /// <param name="b">A ComplexNumber</param>
         /// <returns>The product of two ComplexNumbers.</returns>
-        public static ComplexNumber operator *(ComplexNumber A, Number B)
+        public static ComplexNumber operator *(ComplexNumber a, Number b)
         {
             ComplexNumber cn = new ComplexNumber();
-            cn.real = A.real * B.real;
-            cn.imaginary = A.imaginary * B.imaginary;
+            cn.Real = a.Real * b.Real;
+            cn.Imaginary = a.Imaginary * b.Imaginary;
             return cn;
         }
 
         /// <summary>
         /// Divides two ComplexNumbers.
         /// </summary>
-        /// <param name="A">A ComplexNumber</param>
-        /// <param name="B">A ComplexNumber with Non-Zero components.</param>
+        /// <param name="a">A ComplexNumber</param>
+        /// <param name="b">A ComplexNumber with Non-Zero components.</param>
         /// <returns>The quotient of two ComplexNumbers.</returns>
-        public static ComplexNumber operator /(ComplexNumber A, Number B)
+        public static ComplexNumber operator /(ComplexNumber a, Number b)
         {
-            if ((B.real == 0) || (B.imaginary == 0))
+            if ((b.Real == 0) || (b.Imaginary == 0))
             {
                 throw new DivideByZeroException();
             }
             ComplexNumber cn = new ComplexNumber();
-            cn.real = A.real / B.real;
-            cn.imaginary = A.imaginary / B.imaginary;
+            cn.Real = a.Real / b.Real;
+            cn.Imaginary = a.Imaginary / b.Imaginary;
             return cn;
         }
 
@@ -110,9 +110,9 @@ namespace Sharpe.Numbers
         public new String ToString()
         {
             StringBuilder complex = new StringBuilder();
-            complex.Append(real.ToString());
-            complex.Append(!Double.IsNaN(this.imaginary) ? "+" : "");
-            complex.Append(imaginary.ToString());
+            complex.Append(Real.ToString());
+            complex.Append(!Double.IsNaN(Imaginary) ? "+" : "");
+            complex.Append(Imaginary.ToString());
             complex.Append("i");
             return complex.ToString();
         }

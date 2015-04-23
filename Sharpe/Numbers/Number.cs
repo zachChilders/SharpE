@@ -13,8 +13,14 @@ namespace Sharpe.Numbers
     /// </summary>
     public class Number
     {
-        public Double real = Double.NaN;
-        public Double imaginary = Double.NaN;
+        /// <summary>
+        /// 
+        /// </summary>
+        public Double Real = Double.NaN;
+        /// <summary>
+        /// 
+        /// </summary>
+        public Double Imaginary = Double.NaN;
 
         /// <summary>
         /// Convert from Number to Double.
@@ -23,7 +29,7 @@ namespace Sharpe.Numbers
         /// <returns>A Double</returns>
         public static implicit operator Double(Number n)
         {
-            return n.real;
+            return n.Real;
         }
 
         /// <summary>
@@ -34,7 +40,7 @@ namespace Sharpe.Numbers
         public static implicit operator Number(Double d)
         {
             Number n = new Number();
-            n.real = d;
+            n.Real = d;
             return n;
         }
 
@@ -45,7 +51,7 @@ namespace Sharpe.Numbers
         /// <returns>An Integer</returns>
         public static implicit operator Int64(Number n)
         {
-            return Convert.ToInt64(n.real);
+            return Convert.ToInt64(n.Real);
         }
 
         /// <summary>
@@ -55,7 +61,7 @@ namespace Sharpe.Numbers
         /// <returns>A Number</returns>
         public static implicit operator Number(Int64 i)
         {
-            Number n = new Number {real = i};
+            Number n = new Number {Real = i};
             return n;
         }
 
@@ -66,7 +72,7 @@ namespace Sharpe.Numbers
         /// <returns>A Complex Number</returns>
         public static implicit operator ComplexNumber(Number n)
         {
-            ComplexNumber cn = new ComplexNumber {real = n.real, imaginary = n.imaginary};
+            ComplexNumber cn = new ComplexNumber {Real = n.Real, Imaginary = n.Imaginary};
             return cn;
         }
 
@@ -77,7 +83,7 @@ namespace Sharpe.Numbers
         /// <returns>A Number</returns>
         public static implicit operator Number(ComplexNumber cn)
         {
-            Number n = new Number {real = cn.real, imaginary = cn.imaginary};
+            Number n = new Number {Real = cn.Real, Imaginary = cn.Imaginary};
             return n;
         }
 
@@ -88,7 +94,7 @@ namespace Sharpe.Numbers
         /// <returns>A float.</returns>
         public static implicit operator float(Number n)
         {
-            return (float)n.real;
+            return (float)n.Real;
         }
 
         /// <summary>
@@ -99,7 +105,7 @@ namespace Sharpe.Numbers
         /// <returns>Sum of A and B</returns>
         public static Number operator +(Number a, Number b)
         {
-            Number n = new Number {real = a.real + b.real, imaginary = a.imaginary + b.imaginary};
+            Number n = new Number {Real = a.Real + b.Real, Imaginary = a.Imaginary + b.Imaginary};
             return n;
         }
 
@@ -111,7 +117,7 @@ namespace Sharpe.Numbers
         /// <returns>Difference between A and B</returns>
         public static Number operator -(Number a, Number b)
         {
-            Number n = new Number {real = a.real - b.real, imaginary = a.imaginary - b.imaginary};
+            Number n = new Number {Real = a.Real - b.Real, Imaginary = a.Imaginary - b.Imaginary};
             return n;
         }
 
@@ -123,7 +129,7 @@ namespace Sharpe.Numbers
         /// <returns>The product of A and B</returns>
         public static Number operator *(Number a, Number b)
         {
-            Number n = new Number {real = a.real*b.real, imaginary = a.imaginary*b.imaginary};
+            Number n = new Number {Real = a.Real*b.Real, Imaginary = a.Imaginary*b.Imaginary};
             return n;
         }
 
@@ -137,10 +143,10 @@ namespace Sharpe.Numbers
         {
 
             Number n = new Number();
-            if ((b.real != 0.0) && (b.imaginary != 0.0))
+            if ((b.Real != 0.0) && (b.Imaginary != 0.0))
             {
-                n.real = a.real / b.real;
-                n.imaginary = a.imaginary / b.imaginary;
+                n.Real = a.Real / b.Real;
+                n.Imaginary = a.Imaginary / b.Imaginary;
             }
             return n;
         }
@@ -153,7 +159,7 @@ namespace Sharpe.Numbers
         /// <returns>Equality of two numbers.</returns>
         public static Boolean operator ==(Number a, Number b)
         {
-            return ((a.real == b.real) && (a.imaginary == b.imaginary));
+            return ((a.Real == b.Real) && (a.Imaginary == b.Imaginary));
         }
 
         /// <summary>
@@ -164,7 +170,7 @@ namespace Sharpe.Numbers
         /// <returns>Equality of two numbers.</returns>
         public static Boolean operator !=(Number a, Number b)
         {
-            return ((a.real != b.real) && (a.imaginary != b.imaginary));
+            return ((a.Real != b.Real) && (a.Imaginary != b.Imaginary));
         }
 
         /// <summary>
@@ -175,13 +181,13 @@ namespace Sharpe.Numbers
         /// <returns>A is less than B.</returns>
         public static Boolean operator <(Number a, Number b)
         {
-            if ((!double.IsNaN(a.imaginary)) || (!double.IsNaN(b.imaginary)))
+            if ((!double.IsNaN(a.Imaginary)) || (!double.IsNaN(b.Imaginary)))
             {
                 throw new NotImplementedException();
             }
             else
             {
-                return a.real < b.real;
+                return a.Real < b.Real;
             }
         }
 
@@ -193,49 +199,13 @@ namespace Sharpe.Numbers
         /// <returns>A is greater than B.</returns>
         public static Boolean operator >(Number a, Number b)
         {
-            if ((!double.IsNaN(a.imaginary)) || (!double.IsNaN(b.imaginary)))
+            if ((!double.IsNaN(a.Imaginary)) || (!double.IsNaN(b.Imaginary)))
             {
                 throw new NotImplementedException();
             }
             else
             {
-                return a.real > b.real;
-            }
-        }
-
-        /// <summary>
-        /// Compares two Numbers.
-        /// </summary>
-        /// <param name="a">A Number</param>
-        /// <param name="b">A Number</param>
-        /// <returns>A is less than or equal to B.</returns>
-        public static Boolean operator <=(Number a, Number b)
-        {
-            if ((a.imaginary != 0.0) || (b.imaginary != 0.0))
-            {
-                throw new NotImplementedException();
-            }
-            else
-            {
-                return a.real <= b.real;
-            }
-        }
-
-        /// <summary>
-        /// Compares two Numbers.
-        /// </summary>
-        /// <param name="a">A Number</param>
-        /// <param name="b">A Number</param>
-        /// <returns>A is greater than or equal to B.</returns>
-        public static Boolean operator >=(Number a, Number b)
-        {
-            if ((a.imaginary != 0.0) || (b.imaginary != 0.0))
-            {
-                throw new NotImplementedException();
-            }
-            else
-            {
-                return a.real >= b.real;
+                return a.Real > b.Real;
             }
         }
 
@@ -249,7 +219,7 @@ namespace Sharpe.Numbers
             if (!(obj is Number)) return false;
 
             Number p = (Number)obj;
-            return real == p.real && imaginary == p.imaginary;
+            return Real == p.Real && Imaginary == p.Imaginary;
         }
 
         /// <summary>
@@ -258,7 +228,7 @@ namespace Sharpe.Numbers
         /// <returns>Hash of a Number.</returns>
         public override int GetHashCode()
         {
-            return Tuple.Create(real, imaginary).GetHashCode();
+            return Tuple.Create(Real, Imaginary).GetHashCode();
         }
 
         /// <summary>
@@ -267,14 +237,14 @@ namespace Sharpe.Numbers
         /// <returns>The String representation of a Number.</returns>
         public new String ToString()
         {
-            if (!Double.IsNaN(imaginary))
+            if (!Double.IsNaN(Imaginary))
             {
-                ComplexNumber cn = new ComplexNumber(real, imaginary);
+                ComplexNumber cn = new ComplexNumber(Real, Imaginary);
                 return cn.ToString();
             }
             else
             {
-                return real.ToString();
+                return Real.ToString();
             }
         }
 

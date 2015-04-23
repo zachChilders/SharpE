@@ -19,16 +19,14 @@ namespace Sharpe.Matrix
         /// </summary>
         public int NumRows
         {
-            get;
-            set;
+            get; private set;
         }
         /// <summary>
         /// Number of Columns.
         /// </summary>
         public int NumCols
         {
-            get;
-            set;
+            get; private set;
         }
 
         /// <summary>
@@ -57,11 +55,11 @@ namespace Sharpe.Matrix
         /// This works, but should pad instead of cut off.
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="RowWidth"></param>
-        public Matrix(int[] data, int RowWidth)
+        /// <param name="rowWidth"></param>
+        public Matrix(int[] data, int rowWidth)
         {
-            NumRows = data.Length / RowWidth;
-            NumCols = RowWidth;
+            NumRows = data.Length / rowWidth;
+            NumCols = rowWidth;
             matrix = new Number[NumRows][];
             for (int i = 0; i < NumRows; i++)
             {
@@ -79,11 +77,11 @@ namespace Sharpe.Matrix
         /// This works, but should pad instead of cut off.
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="RowWidth"></param>
-        public Matrix(Double[] data, int RowWidth)
+        /// <param name="rowWidth"></param>
+        public Matrix(Double[] data, int rowWidth)
         {
-            NumRows = data.Length / RowWidth;
-            NumCols = RowWidth;
+            NumRows = data.Length / rowWidth;
+            NumCols = rowWidth;
             matrix = new Number[NumRows][];
             for (int i = 0; i < NumRows; i++)
             {
@@ -101,11 +99,11 @@ namespace Sharpe.Matrix
         /// This works, but should pad instead of cut off.
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="RowWidth"></param>
-        public Matrix(float[] data, int RowWidth)
+        /// <param name="rowWidth"></param>
+        public Matrix(float[] data, int rowWidth)
         {
-            NumRows = data.Length / RowWidth;
-            NumCols = RowWidth;
+            NumRows = data.Length / rowWidth;
+            NumCols = rowWidth;
             matrix = new Number[NumRows][];
             for (int i = 0; i < NumRows; i++)
             {
