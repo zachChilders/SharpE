@@ -279,6 +279,24 @@
             </summary>
             <param name="n">Number of dimensions.</param>
         </member>
+        <member name="T:Sharpe.Matrix.EigenSolver">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Sharpe.Matrix.EigenSolver.#ctor(Sharpe.Matrix.Matrix)">
+            <summary>
+            Initializes an eigensolver for a given matrix.
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.EigenSolver.GetEigenVector">
+            <summary>
+            Calculates the dominant eigenvector using 
+            power iteration
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Sharpe.Matrix.EigenSolver.GetEigenValue">
             <summary>
             Computes the Raleigh quotient
@@ -457,12 +475,66 @@
             </summary>
             <param name="n">Number of dimensions.</param>
         </member>
+        <member name="M:Sharpe.Matrix.Vector.#ctor(System.Int32[])">
+            <summary>
+            Constructor to make a vector from an array.
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.#ctor(System.Double[])">
+            <summary>
+            Constructor to make a vector from an array.
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.#ctor(System.Single[])">
+            <summary>
+            Constructor to make a vector from an array.
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.#ctor(Sharpe.Numbers.Number[])">
+            <summary>
+            Constructor to make a vector from an array.
+            </summary>
+            <param name="array"></param>
+        </member>
         <member name="M:Sharpe.Matrix.Vector.op_Multiply(Sharpe.Matrix.Matrix,Sharpe.Matrix.Vector)">
             <summary>
             Multiplies two matrices, if possible.  
             </summary>
             <param name="A"></param>
             <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.op_Multiply(Sharpe.Matrix.Vector,Sharpe.Matrix.Matrix)">
+            <summary>
+            Vector * matrix
+            </summary>
+            <param name="B"></param>
+            <param name="A"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.op_Multiply(Sharpe.Matrix.Vector,Sharpe.Matrix.Vector)">
+            <summary>
+            Matrix * Matrix
+            </summary>
+            <param name="A"></param>
+            <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.op_Division(Sharpe.Matrix.Vector,Sharpe.Numbers.Number)">
+            <summary>
+            Scale down a vector
+            </summary>
+            <param name="V"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.MaxElement">
+            <summary>
+            Find the max of a vector.
+            </summary>
             <returns></returns>
         </member>
         <member name="M:Sharpe.Matrix.Vector.dot(Sharpe.Numbers.Number[])">

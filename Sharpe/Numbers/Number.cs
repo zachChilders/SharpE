@@ -55,8 +55,7 @@ namespace Sharpe.Numbers
         /// <returns>A Number</returns>
         public static implicit operator Number(Int64 i)
         {
-            Number n = new Number();
-            n.real = i;
+            Number n = new Number {real = i};
             return n;
         }
 
@@ -67,9 +66,7 @@ namespace Sharpe.Numbers
         /// <returns>A Complex Number</returns>
         public static implicit operator ComplexNumber(Number n)
         {
-            ComplexNumber cn = new ComplexNumber();
-            cn.real = n.real;
-            cn.imaginary = n.imaginary;
+            ComplexNumber cn = new ComplexNumber {real = n.real, imaginary = n.imaginary};
             return cn;
         }
 
@@ -80,9 +77,7 @@ namespace Sharpe.Numbers
         /// <returns>A Number</returns>
         public static implicit operator Number(ComplexNumber cn)
         {
-            Number n = new Number();
-            n.real = cn.real;
-            n.imaginary = cn.imaginary;
+            Number n = new Number {real = cn.real, imaginary = cn.imaginary};
             return n;
         }
 
@@ -104,9 +99,7 @@ namespace Sharpe.Numbers
         /// <returns>Sum of A and B</returns>
         public static Number operator +(Number a, Number b)
         {
-            Number n = new Number();
-            n.real = a.real + b.real;
-            n.imaginary = a.imaginary + b.imaginary;
+            Number n = new Number {real = a.real + b.real, imaginary = a.imaginary + b.imaginary};
             return n;
         }
 
@@ -118,9 +111,7 @@ namespace Sharpe.Numbers
         /// <returns>Difference between A and B</returns>
         public static Number operator -(Number a, Number b)
         {
-            Number n = new Number();
-            n.real = a.real - b.real;
-            n.imaginary = a.imaginary - b.imaginary;
+            Number n = new Number {real = a.real - b.real, imaginary = a.imaginary - b.imaginary};
             return n;
         }
 
@@ -132,9 +123,7 @@ namespace Sharpe.Numbers
         /// <returns>The product of A and B</returns>
         public static Number operator *(Number a, Number b)
         {
-            Number n = new Number();
-            n.real = a.real * b.real;
-            n.imaginary = a.imaginary * b.imaginary;
+            Number n = new Number {real = a.real*b.real, imaginary = a.imaginary*b.imaginary};
             return n;
         }
 

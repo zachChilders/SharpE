@@ -18,7 +18,59 @@ namespace Sharpe.Matrix
         /// </summary>
         /// <param name="n">Number of dimensions.</param>
         public Vector(int n) : base(n, 1)
-        {}
+        {
+        }
+
+        /// <summary>
+        /// Constructor to make a vector from an array.
+        /// </summary>
+        /// <param name="array"></param>
+        public Vector(int [] array) : base(array.Length, 1)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                matrix[i][0] = array[i];
+            }
+        }
+
+        /// <summary>
+        /// Constructor to make a vector from an array.
+        /// </summary>
+        /// <param name="array"></param>
+        public Vector(Double[] array)
+            : base(array.Length, 1)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                matrix[i][0] = array[i];
+            }
+        }
+
+        /// <summary>
+        /// Constructor to make a vector from an array.
+        /// </summary>
+        /// <param name="array"></param>
+        public Vector(float[] array)
+            : base(array.Length, 1)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                matrix[i][0] = array[i];
+            }
+        }
+
+        /// <summary>
+        /// Constructor to make a vector from an array.
+        /// </summary>
+        /// <param name="array"></param>
+        public Vector(Number[] array)
+            : base(array.Length, 1)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                matrix[i][0] = array[i];
+            }
+        }
 
         /// <summary>
         /// Allows for [][] indexing of matrices. Must be 0 based.
@@ -56,6 +108,12 @@ namespace Sharpe.Matrix
             return resultant;
         }
 
+        /// <summary>
+        /// Vector * matrix
+        /// </summary>
+        /// <param name="B"></param>
+        /// <param name="A"></param>
+        /// <returns></returns>
         public static Vector operator *(Vector B, Matrix A)
         {
 
@@ -69,6 +127,12 @@ namespace Sharpe.Matrix
             return resultant;
         }
 
+        /// <summary>
+        /// Matrix * Matrix
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
         public static Number operator *(Vector A, Vector B)
         {
             Number resultant = 0.0;
@@ -80,6 +144,12 @@ namespace Sharpe.Matrix
             return resultant;
         }
 
+        /// <summary>
+        /// Scale down a vector
+        /// </summary>
+        /// <param name="V"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public static Vector operator /(Vector V, Number n)
         {
             Vector resultant = new Vector(V.NumRows);
@@ -90,10 +160,14 @@ namespace Sharpe.Matrix
             return resultant;
         }
 
-        public Number maxElement()
+        /// <summary>
+        /// Find the max of a vector.
+        /// </summary>
+        /// <returns></returns>
+        public Number MaxElement()
         {
             Number max = matrix[0][0];
-            for (int i = 1; i < this.NumRows; i++)
+            for (int i = 1; i < NumRows; i++)
             {
                 if (matrix[i][0] > max)
                 {
