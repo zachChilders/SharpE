@@ -17,7 +17,8 @@ namespace Sharpe.Matrix
         /// Creates an n-Dimensional Vector.
         /// </summary>
         /// <param name="n">Number of dimensions.</param>
-        public Vector(int n) : base(n, 1)
+        public Vector(int n)
+            : base(n, 1)
         {
         }
 
@@ -25,7 +26,8 @@ namespace Sharpe.Matrix
         /// Constructor to make a vector from an array.
         /// </summary>
         /// <param name="array"></param>
-        public Vector(int [] array) : base(array.Length, 1)
+        public Vector(int[] array)
+            : base(array.Length, 1)
         {
             for (int i = 0; i < array.Length; i++)
             {
@@ -139,7 +141,7 @@ namespace Sharpe.Matrix
 
             for (int i = 0; i < a.NumRows; i++)
             {
-                resultant += a[i]*b[i];
+                resultant += a[i] * b[i];
             }
             return resultant;
         }
@@ -155,7 +157,7 @@ namespace Sharpe.Matrix
             Vector resultant = new Vector(v.NumRows);
             for (int i = 0; i < v.NumRows; i++)
             {
-                resultant[i] = v[i]/n;
+                resultant[i] = v[i] / n;
             }
             return resultant;
         }
@@ -195,6 +197,26 @@ namespace Sharpe.Matrix
         }
 
         /// <summary>
+        /// Row * Vector is a matrix
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        public static Matrix operator *(Vector v, RowVector r)
+        {
+            Matrix m = new Matrix(v.NumRows, r.NumCols);
+            for (int i = 0; i < r.NumCols; i++)
+            {
+                for (int j = 0; j < v.NumRows; j++)
+                {
+                    m[i][j] = r[i] * v[j];
+                }
+            }
+
+            return m;
+        }
+
+        /// <summary>
         /// Applies a scale to each number and returns the sum.
         /// </summary>
         /// <param name="number1"></param>
@@ -202,7 +224,21 @@ namespace Sharpe.Matrix
         /// <returns></returns>
         private static Number dot(Number number1, Number[] number2)
         {
-            return number2.Aggregate<Number, Number>(0.0, (current, t) => current + (t*number1));
+            return number2.Aggregate<Number, Number>(0.0, (current, t) => current + (t * number1));
+        }
+
+        /// <summary>
+        /// Transposing a Column Vector should give a Row vector
+        /// </summary>
+        /// <returns></returns>
+        public new RowVector Transpose()
+        {
+            RowVector r = new RowVector(NumRows);
+            for (int i = 0; i < NumRows; i++)
+            {
+                r[i] = matrix[i][0];
+            }
+            return r;
         }
     }
 }
