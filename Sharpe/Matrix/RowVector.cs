@@ -1,24 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Sharpe.Numbers;
 
 namespace Sharpe.Matrix
 {
-    /// <summary>
-    /// An n-Dimensional Vector
-    /// </summary>
-    public class Vector : Matrix
+    public class RowVector : Matrix
     {
-        /// <summary>
-        /// Creates an n-Dimensional Vector.
-        /// </summary>
-        /// <param name="n">Number of dimensions.</param>
-        public Vector(int n)
-            : base(n, 1)
+        public RowVector(int n)
+            : base(1, n)
         {
         }
 
@@ -26,12 +18,12 @@ namespace Sharpe.Matrix
         /// Constructor to make a vector from an array.
         /// </summary>
         /// <param name="array"></param>
-        public Vector(int[] array)
-            : base(array.Length, 1)
+        public RowVector(int[] array)
+            : base(1, array.Length)
         {
             for (int i = 0; i < array.Length; i++)
             {
-                matrix[i][0] = array[i];
+                matrix[0][1] = array[i];
             }
         }
 
@@ -39,12 +31,12 @@ namespace Sharpe.Matrix
         /// Constructor to make a vector from an array.
         /// </summary>
         /// <param name="array"></param>
-        public Vector(Double[] array)
-            : base(array.Length, 1)
+        public RowVector(Double[] array)
+            : base(1, array.Length)
         {
             for (int i = 0; i < array.Length; i++)
             {
-                matrix[i][0] = array[i];
+                matrix[0][i] = array[i];
             }
         }
 
@@ -52,12 +44,12 @@ namespace Sharpe.Matrix
         /// Constructor to make a vector from an array.
         /// </summary>
         /// <param name="array"></param>
-        public Vector(float[] array)
+        public RowVector(float[] array)
             : base(array.Length, 1)
         {
             for (int i = 0; i < array.Length; i++)
             {
-                matrix[i][0] = array[i];
+                matrix[0][i] = array[i];
             }
         }
 
@@ -65,12 +57,12 @@ namespace Sharpe.Matrix
         /// Constructor to make a vector from an array.
         /// </summary>
         /// <param name="array"></param>
-        public Vector(Number[] array)
+        public RowVector(Number[] array)
             : base(array.Length, 1)
         {
             for (int i = 0; i < array.Length; i++)
             {
-                matrix[i][0] = array[i];
+                matrix[0][i] = array[i];
             }
         }
 
@@ -83,11 +75,11 @@ namespace Sharpe.Matrix
         {
             get
             {
-                return matrix[i][0];
+                return matrix[0][i];
             }
             set
             {
-                matrix[i][0] = value;
+                matrix[0][i] = value;
             }
         }
 
@@ -97,10 +89,10 @@ namespace Sharpe.Matrix
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
-        public static Vector operator *(Matrix a, Vector b)
+        public static RowVector operator *(Matrix a, RowVector b)
         {
 
-            Vector resultant = new Vector(a.NumRows);
+            RowVector resultant = new RowVector(a.NumRows);
 
             for (int i = 0; i < a.NumRows; i++)
             {
@@ -116,10 +108,10 @@ namespace Sharpe.Matrix
         /// <param name="b"></param>
         /// <param name="a"></param>
         /// <returns></returns>
-        public static Vector operator *(Vector b, Matrix a)
+        public static RowVector operator *(RowVector b, Matrix a)
         {
 
-            Vector resultant = new Vector(a.NumRows);
+            RowVector resultant = new RowVector(a.NumRows);
 
             for (int i = 0; i < a.NumRows; i++)
             {
@@ -135,7 +127,7 @@ namespace Sharpe.Matrix
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
-        public static Number operator *(Vector a, Vector b)
+        public static Number operator *(RowVector a, RowVector b)
         {
             Number resultant = 0.0;
 
@@ -152,9 +144,9 @@ namespace Sharpe.Matrix
         /// <param name="v"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public static Vector operator /(Vector v, Number n)
+        public static RowVector operator /(RowVector v, Number n)
         {
-            Vector resultant = new Vector(v.NumRows);
+            RowVector resultant = new RowVector(v.NumRows);
             for (int i = 0; i < v.NumRows; i++)
             {
                 resultant[i] = v[i] / n;
@@ -171,9 +163,9 @@ namespace Sharpe.Matrix
             Number max = matrix[0][0];
             for (int i = 1; i < NumRows; i++)
             {
-                if (matrix[i][0] > max)
+                if (matrix[0][i] > max)
                 {
-                    max = matrix[i][0];
+                    max = matrix[0][i];
                 }
             }
             return max;
@@ -190,30 +182,10 @@ namespace Sharpe.Matrix
             Number resultant = 0.0;
             for (int i = 0; i < number1.Length; i++)
             {
-                resultant += (number1[i] * matrix[i][0]);
+                resultant += (number1[i] * matrix[0][i]);
             }
 
             return resultant;
-        }
-
-        /// <summary>
-        /// Row * Vector is a matrix
-        /// </summary>
-        /// <param name="r"></param>
-        /// <param name="v"></param>
-        /// <returns></returns>
-        public static Matrix operator *(Vector v, RowVector r)
-        {
-            Matrix m = new Matrix(v.NumRows, r.NumCols);
-            for (int i = 0; i < r.NumCols; i++)
-            {
-                for (int j = 0; j < v.NumRows; j++)
-                {
-                    m[i][j] = r[i] * v[j];
-                }
-            }
-
-            return m;
         }
 
         /// <summary>
@@ -228,15 +200,53 @@ namespace Sharpe.Matrix
         }
 
         /// <summary>
+        /// Row * Vector is a dot product.
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        public static Number operator *(RowVector r, Vector v)
+        {
+            if (r.NumCols != v.NumRows)
+            {
+                return new Number();
+            }
+
+            Number sum = 0.0;
+            for (int i = 0; i < r.NumCols; i++)
+            {
+                sum += (r[i]*v[i]);
+            }
+            return sum;
+        }
+
+        /// <summary>
+        /// Override to print horizontally.
+        /// </summary>
+        /// <returns></returns>
+        public new String ToString()
+        {
+            StringBuilder str = new StringBuilder();
+            for (int i = 0; i < NumCols; i++)
+            {
+                str.Append(matrix[0][i]);
+                str.Append(" ");
+            }
+            str.Append("\n");
+
+            return str.ToString();
+        }
+
+        /// <summary>
         /// Transposing a Column Vector should give a Row vector
         /// </summary>
         /// <returns></returns>
-        public new RowVector Transpose()
+        public new Vector Transpose()
         {
-            RowVector r = new RowVector(NumRows);
+            Vector r = new Vector(NumRows);
             for (int i = 0; i < NumRows; i++)
             {
-                r[i] = matrix[i][0];
+                r[i] = matrix[0][i];
             }
             return r;
         }
@@ -245,17 +255,17 @@ namespace Sharpe.Matrix
         /// Returns a unit vector 
         /// </summary>
         /// <returns></returns>
-        public Vector UnitVector()
+        public RowVector UnitVector()
         {
-            return this/Magnitude();
+            return this / Magntitude();
         }
 
-        public Number Magnitude()
+        public Number Magntitude()
         {
             Number magnitude = 0.0;
-            for (int i = 0; i < NumCols; i++)
+            for (int i = 0; i < NumRows; i++)
             {
-                magnitude += matrix[i][0] * matrix[i][0];
+                magnitude += matrix[0][i] * matrix[0][i];
             }
             magnitude = Math.Sqrt(magnitude);
             return magnitude;

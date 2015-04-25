@@ -42,7 +42,7 @@ namespace Sharpe.Matrix
         {
             if (m.NumRows != m.NumCols)
             {
-                throw new InvalidOperationException("Matrices must be square to calculate eigenvalues.");
+                throw new InvalidOperationException("Matrices must be square to calculate Eigen Value.");
             }
             origMatrix = m;
             epsilon = EpsDefault;
@@ -57,19 +57,19 @@ namespace Sharpe.Matrix
         {
             if (origMatrix == null)
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("Unitialized matrix given.");
             }
 
-            Vector eigenValues = new Vector(origMatrix.NumRows);
+            Vector dominantVector = new Vector(origMatrix.NumRows);
             for (int i = 0; i < origMatrix.NumRows; i++)
             {
-                eigenValues[i] = 1;
+                dominantVector[i] = 1;
             }
 
             Double percentError = 0.0;
 
-            Number lastNumerator = (origMatrix * eigenValues) * (origMatrix * eigenValues);
-            Number lastDenominator = eigenValues * eigenValues;
+            Number lastNumerator = (origMatrix * dominantVector) * (origMatrix * dominantVector);
+            Number lastDenominator = dominantVector * dominantVector;
             Number lastApproximation = Math.Sqrt(lastNumerator / lastDenominator);
 
             Number numerator;
@@ -78,12 +78,12 @@ namespace Sharpe.Matrix
 
             while (Math.Abs(percentError - 1.0) > epsilon)
             {
-                eigenValues = origMatrix * eigenValues;
-                eigenValues /= eigenValues.MaxElement(); //Scaling
+                dominantVector = origMatrix * dominantVector;
+                dominantVector /= dominantVector.MaxElement(); //Scaling
 
                 //Eigenvalue approximation to figure out when to stop.
-                numerator = (origMatrix * eigenValues) * (origMatrix * eigenValues);
-                denominator = eigenValues * eigenValues;
+                numerator = (origMatrix * dominantVector) * (origMatrix * dominantVector);
+                denominator = dominantVector * dominantVector;
                 approximation = Math.Sqrt(numerator / denominator);
 
                 //Calculate percent error
@@ -92,8 +92,8 @@ namespace Sharpe.Matrix
             }
 
             //Repeat for n vectors
-            eigenVector = eigenValues;
-            return eigenValues;
+            eigenVector = dominantVector;
+            return dominantVector;
         }
 
         /// <summary>
@@ -111,5 +111,7 @@ namespace Sharpe.Matrix
             Number denominator = eigenVector * eigenVector;
             return (numerator / denominator);
         }
+
+
     }
 }
