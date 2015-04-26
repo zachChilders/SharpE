@@ -10,6 +10,7 @@ namespace Sharpe.Matrix
     public class EigenSolver
     {
         private readonly Matrix origMatrix;
+        private Matrix deflatedMatrix;
         private Vector eigenVector;
 
         /// <summary>
@@ -45,6 +46,7 @@ namespace Sharpe.Matrix
                 throw new InvalidOperationException("Matrices must be square to calculate Eigen Value.");
             }
             origMatrix = m;
+            deflatedMatrix = origMatrix;
             epsilon = EpsDefault;
         }
 
@@ -68,7 +70,7 @@ namespace Sharpe.Matrix
 
             Double percentError = 0.0;
 
-            Number lastNumerator = (origMatrix * dominantVector) * (origMatrix * dominantVector);
+            Number lastNumerator = (deflatedMatrix * dominantVector) * (deflatedMatrix * dominantVector);
             Number lastDenominator = dominantVector * dominantVector;
             Number lastApproximation = Math.Sqrt(lastNumerator / lastDenominator);
 
@@ -78,11 +80,11 @@ namespace Sharpe.Matrix
 
             while (Math.Abs(percentError - 1.0) > epsilon)
             {
-                dominantVector = origMatrix * dominantVector;
+                dominantVector = deflatedMatrix * dominantVector;
                 dominantVector /= dominantVector.MaxElement(); //Scaling
 
                 //Eigenvalue approximation to figure out when to stop.
-                numerator = (origMatrix * dominantVector) * (origMatrix * dominantVector);
+                numerator = (deflatedMatrix * dominantVector) * (deflatedMatrix * dominantVector);
                 denominator = dominantVector * dominantVector;
                 approximation = Math.Sqrt(numerator / denominator);
 
@@ -93,6 +95,11 @@ namespace Sharpe.Matrix
 
             //Repeat for n vectors
             eigenVector = dominantVector;
+
+            //Deflate 
+            deflatedMatrix = deflatedMatrix -
+                             ((eigenVector.UnitVector()*eigenVector.UnitVector().Transpose())*GetEigenValue());
+
             return dominantVector;
         }
 
@@ -106,7 +113,7 @@ namespace Sharpe.Matrix
             {
                 GetEigenVector();
             }
-            Vector tmp = origMatrix * eigenVector;
+            Vector tmp = deflatedMatrix * eigenVector;
             Number numerator = tmp * eigenVector;
             Number denominator = eigenVector * eigenVector;
             return (numerator / denominator);

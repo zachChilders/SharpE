@@ -294,6 +294,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Sharpe.Matrix.RowVector.Transpose">
+            <summary>
+            Transposing a Column Vector should give a Row vector
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.RowVector.UnitVector">
+            <summary>
+            Returns a unit vector 
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:Sharpe.Matrix.RowVector.Item(System.Int32)">
             <summary>
             Allows for [][] indexing of matrices. Must be 0 based.
@@ -674,6 +686,18 @@
             </summary>
             <param name="number1"></param>
             <param name="number2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.Transpose">
+            <summary>
+            Transposing a Column Vector should give a Row vector
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.UnitVector">
+            <summary>
+            Returns a unit vector 
+            </summary>
             <returns></returns>
         </member>
         <member name="P:Sharpe.Matrix.Vector.Item(System.Int32)">

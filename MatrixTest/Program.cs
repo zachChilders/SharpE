@@ -56,14 +56,23 @@ namespace MatrixTest
             int[] arr3 = { 2, -12, 1, -5 };
             Matrix vMatrix = new Matrix(arr3, 2);
             Vector vResult = vMatrix * v;
-            Console.WriteLine(vResult.ToString());
 
             EigenSolver e = new EigenSolver(vMatrix);
             Console.WriteLine("Dominant Eigen");
             Console.WriteLine(e.GetEigenVector().ToString());
 
             Console.WriteLine("Dominant Eigenvalue");
-            Console.WriteLine(e.GetEigenValue() + "\n");
+            Console.WriteLine(e.GetEigenValue().ToString() + "\n");
+
+
+            Console.WriteLine("Dominant Eigen");
+            Console.WriteLine(e.GetEigenVector().ToString());
+
+
+            Console.WriteLine("Dominant Eigenvalue");
+            Console.WriteLine(e.GetEigenValue().ToString() + "\n");
+
+
 
             Console.WriteLine("================");
             Console.WriteLine("LU DECOMPOSITION");
