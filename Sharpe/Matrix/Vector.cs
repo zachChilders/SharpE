@@ -253,7 +253,7 @@ namespace Sharpe.Matrix
         public Number Magnitude()
         {
             Number magnitude = 0.0;
-            for (int i = 0; i < NumCols; i++)
+            for (int i = 0; i < NumRows; i++)
             {
                 magnitude += matrix[i][0] * matrix[i][0];
             }

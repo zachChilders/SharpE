@@ -12,6 +12,7 @@ namespace Sharpe.Matrix
         private readonly Matrix origMatrix;
         private Matrix deflatedMatrix;
         private Vector eigenVector;
+        private Number eigenValue { get; set; }
 
         /// <summary>
         /// 
@@ -65,8 +66,9 @@ namespace Sharpe.Matrix
             Vector dominantVector = new Vector(origMatrix.NumRows);
             for (int i = 0; i < origMatrix.NumRows; i++)
             {
-                dominantVector[i] = 1;
+                dominantVector[i] = 0;
             }
+            dominantVector[0] = 1;
 
             Double percentError = 0.0;
 
@@ -96,9 +98,12 @@ namespace Sharpe.Matrix
             //Repeat for n vectors
             eigenVector = dominantVector;
 
+            CalculateEigenValue();
+
             //Deflate 
-            deflatedMatrix = deflatedMatrix -
-                             ((eigenVector.UnitVector()*eigenVector.UnitVector().Transpose())*GetEigenValue());
+            Vector U = eigenVector.UnitVector();
+            RowVector Ut = eigenVector.UnitVector().Transpose();
+            deflatedMatrix = deflatedMatrix - ((U *  Ut) * GetEigenValue());
 
             return dominantVector;
         }
@@ -107,18 +112,26 @@ namespace Sharpe.Matrix
         /// Computes the Raleigh quotient
         /// </summary>
         /// <returns></returns>
-        public Number GetEigenValue()
+        private void CalculateEigenValue()
         {
             if (eigenVector == null)
             {
                 GetEigenVector();
             }
-            Vector tmp = deflatedMatrix * eigenVector;
+            Vector tmp = origMatrix * eigenVector;
             Number numerator = tmp * eigenVector;
             Number denominator = eigenVector * eigenVector;
-            return (numerator / denominator);
+            eigenValue = (numerator / denominator);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public Number GetEigenValue()
+        {
+            return eigenValue;
+        }
 
     }
 }

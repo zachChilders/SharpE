@@ -423,9 +423,15 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Sharpe.Matrix.EigenSolver.GetEigenValue">
+        <member name="M:Sharpe.Matrix.EigenSolver.CalculateEigenValue">
             <summary>
             Computes the Raleigh quotient
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.EigenSolver.GetEigenValue">
+            <summary>
+            
             </summary>
             <returns></returns>
         </member>
