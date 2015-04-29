@@ -7,8 +7,15 @@ using Sharpe.Numbers;
 
 namespace Sharpe.Matrix
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class RowVector : Matrix
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="n"></param>
         public RowVector(int n)
             : base(1, n)
         {
@@ -263,7 +270,7 @@ namespace Sharpe.Matrix
         public Number Magntitude()
         {
             Number magnitude = 0.0;
-            for (int i = 0; i < NumRows; i++)
+            for (int i = 0; i < NumCols; i++)
             {
                 magnitude += matrix[0][i] * matrix[0][i];
             }

@@ -73,43 +73,42 @@ namespace MatrixTest
             Console.WriteLine("Dominant Eigenvalue");
             Console.WriteLine(e.GetEigenValue().ToString() + "\n");
 
-            //Console.WriteLine("================");
-            //Console.WriteLine("LU DECOMPOSITION");
-            //Console.WriteLine("================");
+            Console.WriteLine("================");
+            Console.WriteLine("LU DECOMPOSITION");
+            Console.WriteLine("================");
 
-            //int[] arr2 = { 25, 5, 1, 64, 8, 1, 144, 12, 1 };
-            //Matrix pre = new Matrix(arr2, 3);
-            //LUMatrix lu = new LUMatrix(pre);
+            int[] arr2 = { 25, 5, 1, 64, 8, 1, 144, 12, 1 };
+            Matrix pre = new Matrix(arr2, 3);
+            LUMatrix lu = new LUMatrix(pre);
 
-            //Console.WriteLine("Original Matrix");
-            //Console.WriteLine(pre.ToString());
+            Console.WriteLine("Original Matrix");
+            Console.WriteLine(pre.ToString());
 
-            //Console.WriteLine("Upper Matrix");
-            //Matrix upper = lu.GetUpper();
-            //Console.WriteLine(upper.ToString());
+            Console.WriteLine("Upper Matrix");
+            Matrix upper = lu.GetUpper();
+            Console.WriteLine(upper.ToString());
 
-            //Console.WriteLine("Lower Matrix");
-            //Matrix lower = lu.GetLower();
-            //Console.WriteLine(lower.ToString());
+            Console.WriteLine("Lower Matrix");
+            Matrix lower = lu.GetLower();
+            Console.WriteLine(lower.ToString());
 
-            //Console.WriteLine("Testing Decomposition");
-            //Matrix result = lower * upper;
-            //Console.WriteLine(result.ToString());
+            Console.WriteLine("Testing Decomposition");
+            Matrix result = lower * upper;
+            Console.WriteLine(result.ToString());
 
-            //Console.WriteLine("Determining Determinant");
-            //Number diagonal = lu.Determinant();
-            //Console.WriteLine(diagonal.ToString() + "\n");
+            Console.WriteLine("Determining Determinant");
+            Number diagonal = lu.Determinant();
+            Console.WriteLine(diagonal.ToString() + "\n");
 
-            ////Inverse is a little broken.
-            //Console.WriteLine("Finding Inverse");
-            //Matrix inverse = lu.Inverse();
-            //Console.WriteLine(inverse.ToString());
+            //Inverse is a little broken.
+            Console.WriteLine("Finding Inverse");
+            Matrix inverse = lu.Inverse();
+            Console.WriteLine(inverse.ToString());
 
-            //Console.WriteLine("Testing Inverse");
-            //result = pre * inverse;
-            //Console.WriteLine(result.ToString());
+            Console.WriteLine("Testing Inverse");
+            result = pre * inverse;
+            Console.WriteLine(result.ToString());
             
-
             Console.Read();
         }
     }

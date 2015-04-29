@@ -48,6 +48,8 @@
     <Compile Include="Matrix\MatrixMath.cs" />
     <Compile Include="Matrix\MatrixOps.cs" />
     <Compile Include="Matrix\EigenStuffs.cs" />
+    <Compile Include="Support\CircularQueue.cs" />
+    <Compile Include="Support\CircularStack.cs" />
     <Compile Include="Support\NamespaceDoc.cs" />
     <Compile Include="Numbers\Number.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

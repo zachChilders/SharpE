@@ -39,6 +39,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Sharpe.Matrix.RowVector">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Sharpe.Matrix.Matrix">
             <summary>
             A class representing a rectangular matrix.
@@ -201,6 +206,12 @@
             </summary>
             <param name="i">Index</param>
             <returns>Matrix Row i</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.RowVector.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="n"></param>
         </member>
         <member name="M:Sharpe.Matrix.RowVector.#ctor(System.Int32[])">
             <summary>
@@ -440,6 +451,51 @@
             A tolerance value for eigen precision.
             Bigger numbers give less precise eigens
             Smaller numbers take longer to solve.
+            </summary>
+        </member>
+        <member name="T:Sharpe.Support.CircularQueue`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Sharpe.Support.CircularQueue`1.Enqueue(`0)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Sharpe.Support.CircularQueue`1.Dequeue">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Support.CircularQueue`1.Reset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Sharpe.Support.CircularStack`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Sharpe.Support.CircularStack`1.Push(`0)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Sharpe.Support.CircularStack`1.Pop">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Support.CircularStack`1.Reset">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:Sharpe.NamespaceDoc">
