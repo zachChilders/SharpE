@@ -23,13 +23,13 @@ namespace Sharpe.Matrix
                 throw new InvalidOperationException(); //Maybe this should be custom
             }
             Matrix resultant = new Matrix(a.NumRows, b.NumCols);
-            for (int i = 0; i < a.NumCols; i++)
+            Parallel.For(0, a.NumCols, i =>
             {
                 for (int j = 0; j < a.NumRows; j++)
                 {
                     resultant[i][j] = a[i][j] + b[i][j];
                 }
-            }
+            });
 
             return resultant;
         }
@@ -48,13 +48,13 @@ namespace Sharpe.Matrix
                 throw new InvalidOperationException(); //Maybe this should be custom
             }
             Matrix resultant = new Matrix(a.NumRows, b.NumCols);
-            for (int i = 0; i < a.NumCols; i++)
+            Parallel.For(0, a.NumCols, i =>
             {
                 for (int j = 0; j < a.NumRows; j++)
                 {
                     resultant[i][j] = a[i][j] - b[i][j];
                 }
-            }
+            });
 
             return resultant;
         }
@@ -68,13 +68,13 @@ namespace Sharpe.Matrix
         public static Matrix operator *(Matrix a, Number b)
         {
             Matrix resultant = new Matrix(a.NumRows, a.NumCols);
-            for (int i = 0; i < a.NumRows; i++)
+            Parallel.For(0, a.NumRows, i =>
             {
                 for (int j = 0; j < a.NumCols; j++)
                 {
-                    resultant[i][j] = a[i][j] * b;
+                    resultant[i][j] = a[i][j]*b;
                 }
-            }
+            });
 
             return resultant;
         }
@@ -94,13 +94,13 @@ namespace Sharpe.Matrix
 
             Matrix resultant = new Matrix(a.NumRows, b.NumCols);
 
-            for (int i = 0; i < a.NumRows; i++)
+            Parallel.For(0, a.NumRows, i =>
             {
                 for (int j = 0; j < b.NumCols; j++)
                 {
                     resultant[i][j] = Dot(a[i], b.GetColumn(j));
                 }
-            }
+            });
 
             return resultant;
         }
@@ -116,10 +116,11 @@ namespace Sharpe.Matrix
         public static Number Dot(Number[] a, Number[] b)
         {
             Number sum = 0.0;
-            for (int i = 0; i < a.Length; i++)
+            Parallel.For(0, a.Length, i =>
             {
                 sum += a[i] * b[i];
             }
+            );
             return sum;
         }
 
@@ -132,10 +133,10 @@ namespace Sharpe.Matrix
         public static Number[] Scale(Number[] vector, Number scalar)
         {
             Number[] resultant = new Number[vector.Length];
-            for (int i = 0; i < vector.Length; i++)
+            Parallel.For(0, vector.Length, i =>
             {
-                resultant [i] = vector[i] * scalar;
-            }
+                resultant[i] = vector[i]*scalar;
+            });
             return resultant;
         }
 
@@ -152,13 +153,13 @@ namespace Sharpe.Matrix
                 throw new InvalidOperationException();
             }
             Number[] resultant = new Number[row1.Length];
-            for (int i = 0; i < row1.Length; i++)
+            Parallel.For(0, row1.Length, i =>
             {
                 resultant[i] = row1[i] - row2[i];
-            }
+            });
             return resultant;
         }
-     
+
         /// <summary>
         /// Returns a column at given index
         /// </summary>
@@ -167,10 +168,10 @@ namespace Sharpe.Matrix
         public Number[] GetColumn(int index)
         {
             Number[] column = new Number[NumRows];
-            for (int i = 0; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 column[i] = matrix[i][index];
-            }
+            });
             return column;
         }
 
@@ -185,10 +186,10 @@ namespace Sharpe.Matrix
             {
                 throw new InvalidOperationException();
             }
-            for (int i = 0; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 matrix[index][i] = data[i];
-            }
+            });
         }
 
         /// <summary>

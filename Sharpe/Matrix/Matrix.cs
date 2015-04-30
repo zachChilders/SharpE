@@ -19,14 +19,16 @@ namespace Sharpe.Matrix
         /// </summary>
         public int NumRows
         {
-            get; private set;
+            get;
+            private set;
         }
         /// <summary>
         /// Number of Columns.
         /// </summary>
         public int NumCols
         {
-            get; private set;
+            get;
+            private set;
         }
 
         /// <summary>
@@ -39,14 +41,14 @@ namespace Sharpe.Matrix
             NumRows = m;
             NumCols = n;
             matrix = new Number[NumRows][];
-            for (int i = 0; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 matrix[i] = new Number[NumCols];
                 for (int j = 0; j < NumCols; j++)
                 {
                     matrix[i][j] = 0.0;
                 }
-            }
+            });
         }
 
         /// <summary>
@@ -61,14 +63,14 @@ namespace Sharpe.Matrix
             NumRows = data.Length / rowWidth;
             NumCols = rowWidth;
             matrix = new Number[NumRows][];
-            for (int i = 0; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 matrix[i] = new Number[NumCols];
                 for (int j = 0; j < NumCols; j++)
                 {
                     matrix[i][j] = data[i * NumCols + j];
                 }
-            }
+            });
         }
 
         /// <summary>
@@ -83,14 +85,14 @@ namespace Sharpe.Matrix
             NumRows = data.Length / rowWidth;
             NumCols = rowWidth;
             matrix = new Number[NumRows][];
-            for (int i = 0; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 matrix[i] = new Number[NumCols];
                 for (int j = 0; j < NumCols; j++)
                 {
                     matrix[i][j] = data[i * NumCols + j];
                 }
-            }
+            });
         }
 
         /// <summary>
@@ -105,14 +107,14 @@ namespace Sharpe.Matrix
             NumRows = data.Length / rowWidth;
             NumCols = rowWidth;
             matrix = new Number[NumRows][];
-            for (int i = 0; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 matrix[i] = new Number[NumCols];
                 for (int j = 0; j < NumCols; j++)
                 {
                     matrix[i][j] = data[i * NumCols + j];
                 }
-            }
+            });
         }
 
         /// <summary>
@@ -123,14 +125,14 @@ namespace Sharpe.Matrix
         public Matrix(Number[][] data)
         {
             matrix = new Number[data.Length][];
-            for (int i = 0; i < data.Length; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 matrix[i] = new Number[data[i].Length];
                 for (int j = 0; j < data[i].Length; j++)
                 {
                     matrix[i][j] = data[i][j];
                 }
-            }
+            });
         }
 
         /// <summary>
@@ -152,6 +154,6 @@ namespace Sharpe.Matrix
 
             return ts.ToString();
         }
-  
+
     }
 }

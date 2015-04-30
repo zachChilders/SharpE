@@ -93,10 +93,7 @@ namespace Sharpe.Matrix
                 //Calculate percent error
                 percentError = lastApproximation / approximation;
                 lastApproximation = approximation;
-                if (iterations++ > 2000)
-                {
-                    Console.WriteLine("WARNING: POWER METHOD FAILED TO CONVEREGE.");
-                }
+               
             }
 
            

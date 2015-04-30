@@ -16,10 +16,10 @@ namespace Sharpe.Matrix
         public Matrix Transpose()
         {
             Matrix t = new Matrix(NumCols, NumRows);
-            for (int i = 0; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 t[i] = GetColumn(i);
-            }
+            });
 
             return t;
         }
@@ -41,7 +41,7 @@ namespace Sharpe.Matrix
         public Number[] Diagonal()
         {
             List<Number> diag = new List<Number>();
-            for (int i = 0; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 for (int j = 0; j < NumCols; j++)
                 {
@@ -50,7 +50,7 @@ namespace Sharpe.Matrix
                         diag.Add(matrix[i][j]);
                     }
                 }
-            }
+            });
             return diag.ToArray();
         }
 

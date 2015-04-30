@@ -29,10 +29,10 @@ namespace Sharpe.Matrix
         public Vector(int[] array)
             : base(array.Length, 1)
         {
-            for (int i = 0; i < array.Length; i++)
+            Parallel.For(0, array.Length, i =>
             {
                 matrix[i][0] = array[i];
-            }
+            });
         }
 
         /// <summary>
@@ -42,10 +42,10 @@ namespace Sharpe.Matrix
         public Vector(Double[] array)
             : base(array.Length, 1)
         {
-            for (int i = 0; i < array.Length; i++)
+            Parallel.For(0, array.Length, i =>
             {
                 matrix[i][0] = array[i];
-            }
+            });
         }
 
         /// <summary>
@@ -55,10 +55,10 @@ namespace Sharpe.Matrix
         public Vector(float[] array)
             : base(array.Length, 1)
         {
-            for (int i = 0; i < array.Length; i++)
+            Parallel.For(0, array.Length, i =>
             {
                 matrix[i][0] = array[i];
-            }
+            });
         }
 
         /// <summary>
@@ -68,10 +68,10 @@ namespace Sharpe.Matrix
         public Vector(Number[] array)
             : base(array.Length, 1)
         {
-            for (int i = 0; i < array.Length; i++)
+            Parallel.For(0, array.Length, i =>
             {
                 matrix[i][0] = array[i];
-            }
+            });
         }
 
         /// <summary>
@@ -102,10 +102,10 @@ namespace Sharpe.Matrix
 
             Vector resultant = new Vector(a.NumRows);
 
-            for (int i = 0; i < a.NumRows; i++)
+            Parallel.For(0, a.NumRows, i =>
             {
                 resultant[i] = b.dot(a[i]);
-            }
+            });
 
             return resultant;
         }
@@ -121,10 +121,10 @@ namespace Sharpe.Matrix
 
             Vector resultant = new Vector(a.NumRows);
 
-            for (int i = 0; i < a.NumRows; i++)
+            Parallel.For(0, a.NumRows, i=>
             {
                 resultant[i] = dot(b[i], a[i]);
-            }
+            });
 
             return resultant;
         }
@@ -139,10 +139,10 @@ namespace Sharpe.Matrix
         {
             Number resultant = 0.0;
 
-            for (int i = 0; i < a.NumRows; i++)
+            Parallel.For(0, a.NumRows, i =>
             {
-                resultant += a[i] * b[i];
-            }
+                resultant += a[i]*b[i];
+            });
             return resultant;
         }
 
@@ -155,10 +155,10 @@ namespace Sharpe.Matrix
         public static Vector operator /(Vector v, Number n)
         {
             Vector resultant = new Vector(v.NumRows);
-            for (int i = 0; i < v.NumRows; i++)
+            Parallel.For(0, v.NumRows, i =>
             {
-                resultant[i] = v[i] / n;
-            }
+                resultant[i] = v[i]/n;
+            });
             return resultant;
         }
 
@@ -169,13 +169,13 @@ namespace Sharpe.Matrix
         public Number MaxElement()
         {
             Number max = matrix[0][0];
-            for (int i = 1; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 if (matrix[i][0] > max)
                 {
                     max = matrix[i][0];
                 }
-            }
+            });
             return max;
         }
 
@@ -188,10 +188,10 @@ namespace Sharpe.Matrix
         private Number dot(Number[] number1)
         {
             Number resultant = 0.0;
-            for (int i = 0; i < number1.Length; i++)
+            Parallel.For(0, number1.Length, i =>
             {
-                resultant += (number1[i] * matrix[i][0]);
-            }
+                resultant += (number1[i]*matrix[i][0]);
+            });
 
             return resultant;
         }
@@ -205,13 +205,13 @@ namespace Sharpe.Matrix
         public static Matrix operator *(Vector v, RowVector r)
         {
             Matrix m = new Matrix(v.NumRows, r.NumCols);
-            for (int i = 0; i < r.NumCols; i++)
+            Parallel.For(0, v.NumRows, i =>
             {
-                for (int j = 0; j < v.NumRows; j++)
+                for (int j = 0; j < r.NumCols; j++)
                 {
-                    m[i][j] = r[i] * v[j];
+                    m[i][j] = r[i]*v[j];
                 }
-            }
+            });
 
             return m;
         }
@@ -234,10 +234,10 @@ namespace Sharpe.Matrix
         public new RowVector Transpose()
         {
             RowVector r = new RowVector(NumRows);
-            for (int i = 0; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
                 r[i] = matrix[i][0];
-            }
+            });
             return r;
         }
 
@@ -247,16 +247,16 @@ namespace Sharpe.Matrix
         /// <returns></returns>
         public Vector UnitVector()
         {
-            return this/Magnitude();
+            return this / Magnitude();
         }
 
         public Number Magnitude()
         {
             Number magnitude = 0.0;
-            for (int i = 0; i < NumRows; i++)
+            Parallel.For(0, NumRows, i =>
             {
-                magnitude += matrix[i][0] * matrix[i][0];
-            }
+                magnitude += matrix[i][0]*matrix[i][0];
+            });
             magnitude = Math.Sqrt(magnitude);
             return magnitude;
         }
