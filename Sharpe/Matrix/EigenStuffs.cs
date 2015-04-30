@@ -79,7 +79,7 @@ namespace Sharpe.Matrix
             Number numerator;
             Number denominator;
             Number approximation;
-
+            int iterations = 0;
             while (Math.Abs(percentError - 1.0) > epsilon)
             {
                 dominantVector = deflatedMatrix * dominantVector;
@@ -93,8 +93,13 @@ namespace Sharpe.Matrix
                 //Calculate percent error
                 percentError = lastApproximation / approximation;
                 lastApproximation = approximation;
+                if (iterations++ > 2000)
+                {
+                    Console.WriteLine("WARNING: POWER METHOD FAILED TO CONVEREGE.");
+                }
             }
 
+           
             //Repeat for n vectors
             eigenVector = dominantVector;
 
