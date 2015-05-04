@@ -74,6 +74,84 @@ namespace Sharpe.Matrix
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static RowVector operator +(RowVector r, Number n)
+        {
+            RowVector resultant = new RowVector(r.Size);
+            Parallel.For(0, r.Size, i =>
+            {
+                r[i] += n;
+            });
+
+            return resultant;
+        }
+
+        public static RowVector operator -(RowVector a, RowVector b)
+        {
+            RowVector resultant = new RowVector(a.Size);
+            Parallel.For(0, a.Size, i =>
+            {
+                resultant[i] = a[i] - b[i];
+            });
+            return resultant;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static RowVector operator -(RowVector r, Number n)
+        {
+            RowVector resultant = new RowVector(r.Size);
+            Parallel.For(0, r.Size, i =>
+            {
+                r[i] -= n;
+            });
+
+            return resultant;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static RowVector operator *(RowVector r, Number n)
+        {
+            RowVector resultant = new RowVector(r.Size);
+            Parallel.For(0, r.Size, i =>
+            {
+                resultant[i] = r[i] * n;
+            });
+
+            return resultant;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static RowVector operator *(Number n, RowVector r)
+        {
+            RowVector resultant = new RowVector(r.Size);
+            Parallel.For(0, r.Size, i =>
+            {
+                resultant[i] = r[i]*n;
+            });
+
+            return resultant;
+        }
+
+        /// <summary>
         /// Multiplies two matrices, if possible.  
         /// </summary>
         /// <param name="a"></param>

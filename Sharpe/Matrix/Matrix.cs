@@ -71,49 +71,51 @@ namespace Sharpe.Matrix
             }
         }
 
-        ///// <summary>
-        ///// Copy data[] into matrix form.  Must specify the width of rows.
-        ///// 
-        ///// This works, but should pad instead of cut off.
-        ///// </summary>
-        ///// <param name="data"></param>
-        ///// <param name="rowWidth"></param>
-        //public Matrix(Double[] data, int rowWidth)
-        //{
-        //    NumRows = data.Length / rowWidth;
-        //    NumCols = rowWidth;
-        //    matrix = new Number[NumRows][];
-        //    Parallel.For(0, NumRows, i =>
-        //    {
-        //        matrix[i] = new Number[NumCols];
-        //        for (int j = 0; j < NumCols; j++)
-        //        {
-        //            matrix[i][j] = data[i * NumCols + j];
-        //        }
-        //    });
-        //}
+        /// <summary>
+        /// Copy data[] into matrix form.  Must specify the width of rows.
+        /// 
+        /// This works, but should pad instead of cut off.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="rowWidth"></param>
+        public Matrix(Double[] data, int rowWidth)
+        {
+            NumRows = data.Length / rowWidth;
+            NumCols = rowWidth;
+            matrix = new List<RowVector>(NumRows);
+            for (int i = 0; i < NumRows; i++)
+            {
+                RowVector r = new RowVector(NumCols);
+                for (int j = 0; j < NumCols; j++)
+                {
+                    r[j] = data[i * NumCols + j];
+                }
+                matrix.Add(r);
+            }
+        }
 
-        ///// <summary>
-        ///// Copy data[] into matrix form.  Must specify the width of rows.
-        ///// 
-        ///// This works, but should pad instead of cut off.
-        ///// </summary>
-        ///// <param name="data"></param>
-        ///// <param name="rowWidth"></param>
-        //public Matrix(float[] data, int rowWidth)
-        //{
-        //    NumRows = data.Length / rowWidth;
-        //    NumCols = rowWidth;
-        //    matrix = new Number[NumRows][];
-        //    Parallel.For(0, NumRows, i =>
-        //    {
-        //        matrix[i] = new Number[NumCols];
-        //        for (int j = 0; j < NumCols; j++)
-        //        {
-        //            matrix[i][j] = data[i * NumCols + j];
-        //        }
-        //    });
-        //}
+        /// <summary>
+        /// Copy data[] into matrix form.  Must specify the width of rows.
+        /// 
+        /// This works, but should pad instead of cut off.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="rowWidth"></param>
+        public Matrix(float[] data, int rowWidth)
+        {
+            NumRows = data.Length / rowWidth;
+            NumCols = rowWidth;
+            matrix = new List<RowVector>(NumRows);
+            for (int i = 0; i < NumRows; i++)
+            {
+                RowVector r = new RowVector(NumCols);
+                for (int j = 0; j < NumCols; j++)
+                {
+                    r[j] = data[i * NumCols + j];
+                }
+                matrix.Add(r);
+            }
+        }
 
         ///// <summary>
         ///// Directly Copy a 2D array into a Matrix. This may need

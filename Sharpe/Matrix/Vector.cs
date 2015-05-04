@@ -101,6 +101,17 @@ namespace Sharpe.Matrix
             }
         }
 
+
+        public static Vector operator -(Vector a, Vector b)
+        {
+            Vector resultant = new Vector(a.Size);
+            Parallel.For(0, a.Size, i =>
+            {
+                resultant[i] = a[i] - b[i];
+            });
+            return resultant;
+        }
+
         /// <summary>
         /// Multiplies two matrices, if possible.  
         /// </summary>

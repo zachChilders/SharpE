@@ -178,9 +178,9 @@ namespace Sharpe.Matrix
         /// </summary>
         /// <param name="data"></param>
         /// <param name="index"></param>
-        public void SetColumn(Number[] data, int index)
+        public void SetColumn(Vector data, int index)
         {
-            if (data.Length != NumRows)
+            if (data.Size != NumRows)
             {
                 throw new InvalidOperationException();
             }

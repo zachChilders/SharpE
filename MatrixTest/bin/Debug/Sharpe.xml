@@ -4,6 +4,41 @@
         <name>Sharpe</name>
     </assembly>
     <members>
+        <member name="T:Sharpe.Matrix.LUMatrix">
+            <summary>
+            lowerQueue Upper Matrix class for decomposition
+            </summary>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.#ctor(Sharpe.Matrix.Matrix)">
+            <summary>
+            
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.GetUpper">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.GetLower">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.Determinant">
+            <summary>
+            Calculate the determinant of the matrix
+            </summary>
+            <returns>The determinant</returns>
+        </member>
+        <member name="M:Sharpe.Matrix.LUMatrix.Inverse">
+            <summary>
+            Generate the Inverse of a matrix
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Sharpe.Matrix.RowVector">
             <summary>
             
@@ -161,6 +196,38 @@
             </summary>
             <param name="array"></param>
         </member>
+        <member name="M:Sharpe.Matrix.RowVector.op_Addition(Sharpe.Matrix.RowVector,Sharpe.Numbers.Number)">
+            <summary>
+            
+            </summary>
+            <param name="r"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.RowVector.op_Subtraction(Sharpe.Matrix.RowVector,Sharpe.Numbers.Number)">
+            <summary>
+            
+            </summary>
+            <param name="r"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.RowVector.op_Multiply(Sharpe.Matrix.RowVector,Sharpe.Numbers.Number)">
+            <summary>
+            
+            </summary>
+            <param name="r"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.RowVector.op_Multiply(Sharpe.Numbers.Number,Sharpe.Matrix.RowVector)">
+            <summary>
+            
+            </summary>
+            <param name="r"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
         <member name="M:Sharpe.Matrix.RowVector.op_Multiply(Sharpe.Matrix.Matrix,Sharpe.Matrix.RowVector)">
             <summary>
             Multiplies two matrices, if possible.  
@@ -309,6 +376,24 @@
             <param name="data"></param>
             <param name="rowWidth"></param>
         </member>
+        <member name="M:Sharpe.Matrix.Matrix.#ctor(System.Double[],System.Int32)">
+            <summary>
+            Copy data[] into matrix form.  Must specify the width of rows.
+            
+            This works, but should pad instead of cut off.
+            </summary>
+            <param name="data"></param>
+            <param name="rowWidth"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.#ctor(System.Single[],System.Int32)">
+            <summary>
+            Copy data[] into matrix form.  Must specify the width of rows.
+            
+            This works, but should pad instead of cut off.
+            </summary>
+            <param name="data"></param>
+            <param name="rowWidth"></param>
+        </member>
         <member name="M:Sharpe.Matrix.Matrix.ToString">
             <summary>
             Allows Printing in Pretty Form
@@ -396,7 +481,7 @@
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="M:Sharpe.Matrix.Matrix.SetColumn(Sharpe.Numbers.Number[],System.Int32)">
+        <member name="M:Sharpe.Matrix.Matrix.SetColumn(Sharpe.Matrix.Vector,System.Int32)">
             <summary>
             Sets a column to an array of numbers
             </summary>
