@@ -13,8 +13,7 @@ namespace Sharpe.Matrix
     /// </summary>
     public class Vector
     {
-
-        private List<Number> v;
+        protected List<Number> v;
 
         public int Size
         {
@@ -215,10 +214,10 @@ namespace Sharpe.Matrix
         /// <returns></returns>
         public static Matrix operator *(Vector a, RowVector r)
         {
-            Matrix m = new Matrix(a.v.Count, r.NumCols);
+            Matrix m = new Matrix(a.v.Count, r.Size);
             Parallel.For(0, a.v.Count, i =>
             {
-                for (int j = 0; j < r.NumCols; j++)
+                for (int j = 0; j < r.Size; j++)
                 {
                     m[i][j] = r[i] * a[j];
                 }
