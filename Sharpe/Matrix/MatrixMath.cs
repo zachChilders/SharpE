@@ -16,23 +16,23 @@ namespace Sharpe.Matrix
         public Matrix Transpose()
         {
             Matrix t = new Matrix(NumCols, NumRows);
-            Parallel.For(0, NumRows, i =>
+            for(int i = 0; i < NumRows; i++)
             {
-                t[i] = GetColumn(i);
-            });
+                t[i] = GetColumn(i).Transpose();
+            };
 
             return t;
         }
 
-        /// <summary>
-        /// Calculate the Determinant of a matrix.
-        /// </summary>
-        /// <returns>The Determinant</returns>
-        public Number Determinant()
-        {
-            LUMatrix lu = new LUMatrix(this);
-            return lu.Determinant();
-        }
+        ///// <summary>
+        ///// Calculate the Determinant of a matrix.
+        ///// </summary>
+        ///// <returns>The Determinant</returns>
+        //public Number Determinant()
+        //{
+        //    LUMatrix lu = new LUMatrix(this);
+        //    return lu.Determinant();
+        //}
 
         /// <summary>
         /// Returns the Main Diagonal of the matrix.

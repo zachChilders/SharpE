@@ -106,21 +106,19 @@ namespace Sharpe.Matrix
         }
 
 
-
         /// <summary>
         /// Essentially a dot product
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
-        public static Number Dot(Number[] a, Number[] b)
+        public static Number Dot(Vector a, Vector b)
         {
             Number sum = 0.0;
-            Parallel.For(0, a.Length, i =>
+            for (int i = 0; i < a.Size; i++)
             {
                 sum += a[i] * b[i];
             }
-            );
             return sum;
         }
 
@@ -165,9 +163,9 @@ namespace Sharpe.Matrix
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public Number[] GetColumn(int index)
+        public Vector GetColumn(int index)
         {
-            Number[] column = new Number[NumRows];
+            Vector column = new Vector(NumRows);
             Parallel.For(0, NumRows, i =>
             {
                 column[i] = matrix[i][index];
@@ -197,7 +195,7 @@ namespace Sharpe.Matrix
         /// </summary>
         /// <param name="i">Index</param>
         /// <returns>Matrix Row i</returns>
-        public Number[] this[int i]
+        public RowVector this[int i]
         {
             get
             {

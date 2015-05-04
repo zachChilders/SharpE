@@ -86,7 +86,7 @@ namespace Sharpe.Matrix
 
             Parallel.For(0, a.NumRows, i =>
             {
-                resultant[i] = b.dot(a[i]);
+                resultant.Append(b.dot(a[i]));
             });
 
             return resultant;
@@ -150,10 +150,10 @@ namespace Sharpe.Matrix
         /// <param name="number1"></param>
         /// <param name="number2"></param>
         /// <returns></returns>
-        private Number dot(Number[] number1)
+        private Number dot(RowVector number1)
         {
             Number resultant = 0.0;
-            Parallel.For(0, number1.Length, i =>
+            Parallel.For(0, number1.Size, i =>
             {
                 resultant += (number1[i]*v[i]);
             });
@@ -167,9 +167,14 @@ namespace Sharpe.Matrix
         /// <param name="number1"></param>
         /// <param name="number2"></param>
         /// <returns></returns>
-        private static Number dot(Number number1, Number[] number2)
+        private static Number dot(Number number1, RowVector number2)
         {
-            return number2.Aggregate<Number, Number>(0.0, (current, t) => current + (t * number1));
+            Number sum = 0.0;
+            for (int i = 0; i < number2.Size; i++)
+            {
+                sum += (number1*number2[i]);
+            }
+            return sum;
         }
 
         /// <summary>
@@ -192,7 +197,6 @@ namespace Sharpe.Matrix
             });
             return sum;
         }
-
 
     }
 }

@@ -4,41 +4,6 @@
         <name>Sharpe</name>
     </assembly>
     <members>
-        <member name="T:Sharpe.Matrix.LUMatrix">
-            <summary>
-            lowerQueue Upper Matrix class for decomposition
-            </summary>
-        </member>
-        <member name="M:Sharpe.Matrix.LUMatrix.#ctor(Sharpe.Matrix.Matrix)">
-            <summary>
-            
-            </summary>
-            <param name="m"></param>
-        </member>
-        <member name="M:Sharpe.Matrix.LUMatrix.GetUpper">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Sharpe.Matrix.LUMatrix.GetLower">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Sharpe.Matrix.LUMatrix.Determinant">
-            <summary>
-            Calculate the determinant of the matrix
-            </summary>
-            <returns>The determinant</returns>
-        </member>
-        <member name="M:Sharpe.Matrix.LUMatrix.Inverse">
-            <summary>
-            Generate the Inverse of a matrix
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Sharpe.Matrix.RowVector">
             <summary>
             
@@ -117,7 +82,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Sharpe.Matrix.Vector.dot(Sharpe.Numbers.Number[])">
+        <member name="M:Sharpe.Matrix.Vector.dot(Sharpe.Matrix.RowVector)">
             <summary>
             Applies a scale to each number and returns the sum.
             </summary>
@@ -133,7 +98,7 @@
             <param name="v"></param>
             <returns></returns>
         </member>
-        <member name="M:Sharpe.Matrix.Vector.dot(Sharpe.Numbers.Number,Sharpe.Numbers.Number[])">
+        <member name="M:Sharpe.Matrix.Vector.dot(Sharpe.Numbers.Number,Sharpe.Matrix.Vector)">
             <summary>
             Applies a scale to each number and returns the sum.
             </summary>
@@ -152,6 +117,12 @@
             Returns a unit vector 
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.Append(Sharpe.Numbers.Number)">
+            <summary>
+            Appends a number to a column
+            </summary>
+            <param name="n"></param>
         </member>
         <member name="P:Sharpe.Matrix.Vector.Item(System.Int32)">
             <summary>
@@ -222,7 +193,7 @@
             <param name="n"></param>
             <returns></returns>
         </member>
-        <member name="M:Sharpe.Matrix.RowVector.dot(Sharpe.Numbers.Number[])">
+        <member name="M:Sharpe.Matrix.RowVector.dot(Sharpe.Matrix.RowVector)">
             <summary>
             Applies a scale to each number and returns the sum.
             </summary>
@@ -230,7 +201,7 @@
             <param name="number2"></param>
             <returns></returns>
         </member>
-        <member name="M:Sharpe.Matrix.RowVector.dot(Sharpe.Numbers.Number,Sharpe.Numbers.Number[])">
+        <member name="M:Sharpe.Matrix.RowVector.dot(Sharpe.Numbers.Number,Sharpe.Matrix.RowVector)">
             <summary>
             Applies a scale to each number and returns the sum.
             </summary>
@@ -338,31 +309,6 @@
             <param name="data"></param>
             <param name="rowWidth"></param>
         </member>
-        <member name="M:Sharpe.Matrix.Matrix.#ctor(System.Double[],System.Int32)">
-            <summary>
-            Copy data[] into matrix form.  Must specify the width of rows.
-            
-            This works, but should pad instead of cut off.
-            </summary>
-            <param name="data"></param>
-            <param name="rowWidth"></param>
-        </member>
-        <member name="M:Sharpe.Matrix.Matrix.#ctor(System.Single[],System.Int32)">
-            <summary>
-            Copy data[] into matrix form.  Must specify the width of rows.
-            
-            This works, but should pad instead of cut off.
-            </summary>
-            <param name="data"></param>
-            <param name="rowWidth"></param>
-        </member>
-        <member name="M:Sharpe.Matrix.Matrix.#ctor(Sharpe.Numbers.Number[][])">
-            <summary>
-            Directly Copy a 2D array into a Matrix. This may need
-            to be overloaded for each copy.
-            </summary>
-            <param name="data"></param>
-        </member>
         <member name="M:Sharpe.Matrix.Matrix.ToString">
             <summary>
             Allows Printing in Pretty Form
@@ -374,12 +320,6 @@
             Rewrites Columns as Rows.
             </summary>
             <returns>Transposed Matrix</returns>
-        </member>
-        <member name="M:Sharpe.Matrix.Matrix.Determinant">
-            <summary>
-            Calculate the Determinant of a matrix.
-            </summary>
-            <returns>The Determinant</returns>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.Diagonal">
             <summary>
@@ -425,7 +365,7 @@
             <param name="b"></param>
             <returns></returns>
         </member>
-        <member name="M:Sharpe.Matrix.Matrix.Dot(Sharpe.Numbers.Number[],Sharpe.Numbers.Number[])">
+        <member name="M:Sharpe.Matrix.Matrix.Dot(Sharpe.Matrix.Vector,Sharpe.Matrix.Vector)">
             <summary>
             Essentially a dot product
             </summary>
