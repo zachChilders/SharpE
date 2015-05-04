@@ -46,6 +46,13 @@ namespace MatrixTest
             Matrix transposeMatrix = multiplyMatrix.Transpose();
             Console.WriteLine(transposeMatrix.ToString());
 
+            Console.WriteLine("Appending Matrix");
+            transposeMatrix.Append(multiplyMatrix);
+            Console.WriteLine(transposeMatrix.ToString());
+
+            subtractMatrix.ColumnAppend(addMatrix);
+            Console.WriteLine(subtractMatrix.ToString());
+
             Console.WriteLine("================");
             Console.WriteLine("  EIGENSOLVER   ");
             Console.WriteLine("================");
@@ -101,14 +108,14 @@ namespace MatrixTest
             Number diagonal = lu.Determinant();
             Console.WriteLine(diagonal.ToString() + "\n");
 
-            //Inverse is a little broken.
-            Console.WriteLine("Finding Inverse");
-            Matrix inverse = lu.Inverse();
-            Console.WriteLine(inverse.ToString());
+            ////Inverse is a little broken.
+            //Console.WriteLine("Finding Inverse");
+            //Matrix inverse = lu.Inverse();
+            //Console.WriteLine(inverse.ToString());
 
-            Console.WriteLine("Testing Inverse");
-            result = pre * inverse;
-            Console.WriteLine(result.ToString());
+            //Console.WriteLine("Testing Inverse");
+            //result = pre * inverse;
+            //Console.WriteLine(result.ToString());
             
             Console.Read();
         }

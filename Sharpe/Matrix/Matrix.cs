@@ -12,7 +12,7 @@ namespace Sharpe.Matrix
     /// </summary>
     public partial class Matrix
     {
-        protected List<RowVector> matrix;
+        private List<RowVector> matrix;
 
         /// <summary>
         /// Number of Rows.
@@ -115,6 +115,48 @@ namespace Sharpe.Matrix
                 }
                 matrix.Add(r);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="v"></param>
+        public void Append(Vector v)
+        {
+            Parallel.For(0, v.Size, i =>
+            {
+                matrix[i].Append(v[i]);
+            });
+            NumCols++;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        public void Append(RowVector r)
+        {
+            matrix.Add(r);
+            NumRows++;
+        }
+
+        public void Append(Matrix m)
+        {
+            for (int i = 0; i < m.NumRows; i++)
+            {
+                matrix.Add(m[i]);
+            }
+            NumRows += m.NumRows;
+        }
+
+        public void ColumnAppend(Matrix m)
+        {
+            Parallel.For(0, m.NumRows, i =>
+            {
+                matrix[i].Append(m[i]);
+            });
+
+            NumCols += m.NumCols;
         }
 
         ///// <summary>

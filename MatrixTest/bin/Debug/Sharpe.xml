@@ -159,6 +159,18 @@
             </summary>
             <param name="n"></param>
         </member>
+        <member name="M:Sharpe.Matrix.Vector.Append(Sharpe.Matrix.Vector)">
+            <summary>
+            
+            </summary>
+            <param name="aVector"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:Sharpe.Matrix.Vector.Item(System.Int32)">
             <summary>
             Allows for [][] indexing of matrices. Must be 0 based.
@@ -393,6 +405,18 @@
             </summary>
             <param name="data"></param>
             <param name="rowWidth"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.Append(Sharpe.Matrix.Vector)">
+            <summary>
+            
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.Append(Sharpe.Matrix.RowVector)">
+            <summary>
+            
+            </summary>
+            <param name="r"></param>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.ToString">
             <summary>

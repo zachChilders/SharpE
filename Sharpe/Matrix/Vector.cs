@@ -296,6 +296,22 @@ namespace Sharpe.Matrix
             v.Add(n);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="aVector"></param>
+        public void Append(Vector aVector)
+        {
+            for (int i = 0; i < aVector.Size; i++)
+            {
+                Append(aVector[i]);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string ToString()
         {
             StringBuilder sb = new StringBuilder();
