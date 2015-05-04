@@ -214,7 +214,7 @@ namespace Sharpe.Matrix
         /// <returns></returns>
         public static Number operator *(RowVector r, Vector v)
         {
-            if (r.NumCols != v.NumRows)
+            if (r.NumCols != v.Size)
             {
                 return new Number();
             }

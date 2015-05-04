@@ -51,7 +51,7 @@ namespace MatrixTest
             Console.WriteLine("================");
 
             int[] vectorArray = { 1, 1, 1 };
-            Vector v = new Vector(vectorArray);
+            Vector v = new Vector(3);
 
             int[] arr3 = { 5, -2, -2, 8};
             Matrix vMatrix = new Matrix(arr3, 2);
