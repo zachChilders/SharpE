@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sharpe.Numbers;
 
 namespace Sharpe.Matrix
 {
@@ -117,6 +116,7 @@ namespace Sharpe.Matrix
             }
         }
 
+      
         /// <summary>
         /// 
         /// </summary>

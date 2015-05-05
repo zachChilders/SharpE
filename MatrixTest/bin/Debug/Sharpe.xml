@@ -67,6 +67,12 @@
             </summary>
             <param name="array"></param>
         </member>
+        <member name="M:Sharpe.Matrix.Vector.#ctor(System.Byte[])">
+            <summary>
+            Constructor to make a vector from an array.
+            </summary>
+            <param name="array"></param>
+        </member>
         <member name="M:Sharpe.Matrix.Vector.#ctor(System.Single[])">
             <summary>
             Constructor to make a vector from an array.
@@ -185,6 +191,12 @@
             <param name="n"></param>
         </member>
         <member name="M:Sharpe.Matrix.RowVector.#ctor(System.Int32[])">
+            <summary>
+            Constructor to make a vector from an array.
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.RowVector.#ctor(System.Byte[])">
             <summary>
             Constructor to make a vector from an array.
             </summary>
@@ -481,22 +493,6 @@
             <param name="a"></param>
             <param name="b"></param>
             <returns></returns>
-        </member>
-        <member name="M:Sharpe.Matrix.Matrix.Scale(Sharpe.Numbers.Number[],Sharpe.Numbers.Number)">
-            <summary>
-            Scales a set of numbers by a scalar.
-            </summary>
-            <param name="vector">A Row, Column, or Vector.</param>
-            <param name="scalar">A scale factor.</param>
-            <returns>The scaled vector</returns>
-        </member>
-        <member name="M:Sharpe.Matrix.Matrix.RowSubtract(Sharpe.Numbers.Number[],Sharpe.Numbers.Number[])">
-            <summary>
-            Subtracts Row2 from Row1.
-            </summary>
-            <param name="row1">A row, column, or Vector</param>
-            <param name="row2">A row, column, or Vector</param>
-            <returns>Row2 - Row1.</returns>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.GetColumn(System.Int32)">
             <summary>

@@ -41,7 +41,7 @@ namespace Sharpe.Matrix
             v = new List<Number>(array.Length);
             Parallel.For(0, array.Length, i =>
             {
-                v.Add(array[i]);
+                v.Insert(i, array[i]);
             });
         }
 
@@ -54,9 +54,25 @@ namespace Sharpe.Matrix
             v = new List<Number>(array.Length);
             Parallel.For(0, array.Length, i =>
             {
-                v[i] = array[i];
+                v.Insert(i, array[i]);
             });
         }
+
+
+        /// <summary>
+        /// Constructor to make a vector from an array.
+        /// </summary>
+        /// <param name="array"></param>
+        public Vector(Byte[] array)
+        {
+            v = new List<Number>(array.Length);
+
+            Parallel.For(0, array.Length, i =>
+            {
+                v.Insert(i, array[i]);
+            });
+        }
+
 
         /// <summary>
         /// Constructor to make a vector from an array.
@@ -67,7 +83,7 @@ namespace Sharpe.Matrix
             v = new List<Number>(array.Length);
             Parallel.For(0, array.Length, i =>
             {
-                v[i] = array[i];
+                v.Insert(i, array[i]);
             });
         }
 
@@ -80,7 +96,7 @@ namespace Sharpe.Matrix
             v = new List<Number>(array.Length);
             Parallel.For(0, array.Length, i =>
             {
-                v[i] = array[i];
+                v.Insert(i, array[i]);
             });
         }
 

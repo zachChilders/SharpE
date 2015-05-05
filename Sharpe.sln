@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTest", "MatrixTest\Ma
 		{D09AD65F-030B-4CA2-8A8E-89EEBFA47EFF} = {D09AD65F-030B-4CA2-8A8E-89EEBFA47EFF}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EigenFaces", "..\EigenFaces\EigenFaces\EigenFaces.csproj", "{81369FE8-AF09-4AC0-ABCE-904F0B7FCFE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{2D067BA0-6F41-40D6-8362-841EAC092E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D067BA0-6F41-40D6-8362-841EAC092E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D067BA0-6F41-40D6-8362-841EAC092E54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81369FE8-AF09-4AC0-ABCE-904F0B7FCFE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81369FE8-AF09-4AC0-ABCE-904F0B7FCFE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81369FE8-AF09-4AC0-ABCE-904F0B7FCFE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81369FE8-AF09-4AC0-ABCE-904F0B7FCFE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

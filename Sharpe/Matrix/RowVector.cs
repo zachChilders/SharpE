@@ -30,7 +30,21 @@ namespace Sharpe.Matrix
         {
             Parallel.For(0, array.Length, i =>
             {
-                v.Add(array[i]);
+                v.Insert(i, array[i]);
+            });
+        }
+
+
+        /// <summary>
+        /// Constructor to make a vector from an array.
+        /// </summary>
+        /// <param name="array"></param>
+        public RowVector(Byte[] array)
+            : base(array.Length)
+        {
+            Parallel.For(0, array.Length, i =>
+            {
+                v.Insert(i, array[i]);
             });
         }
 
@@ -43,7 +57,7 @@ namespace Sharpe.Matrix
         {
             Parallel.For(0, array.Length, i =>
             {
-                v.Add(array[i]);
+                v.Insert(i, array[i]);
             });
         }
 
@@ -56,7 +70,7 @@ namespace Sharpe.Matrix
         {
             Parallel.For(0, array.Length, i =>
             {
-                v.Add(array[i]);
+                v.Insert(i, array[i]);
             });
         }
 
@@ -69,7 +83,7 @@ namespace Sharpe.Matrix
         {
             Parallel.For(0, array.Length, i =>
             {
-                v.Add(array[i]);
+                v.Insert(i, array[i]);
             });
         }
 

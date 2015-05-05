@@ -123,42 +123,6 @@ namespace Sharpe.Matrix
         }
 
         /// <summary>
-        /// Scales a set of numbers by a scalar.
-        /// </summary>
-        /// <param name="vector">A Row, Column, or Vector.</param>
-        /// <param name="scalar">A scale factor.</param>
-        /// <returns>The scaled vector</returns>
-        public static Number[] Scale(Number[] vector, Number scalar)
-        {
-            Number[] resultant = new Number[vector.Length];
-            Parallel.For(0, vector.Length, i =>
-            {
-                resultant[i] = vector[i]*scalar;
-            });
-            return resultant;
-        }
-
-        /// <summary>
-        /// Subtracts Row2 from Row1.
-        /// </summary>
-        /// <param name="row1">A row, column, or Vector</param>
-        /// <param name="row2">A row, column, or Vector</param>
-        /// <returns>Row2 - Row1.</returns>
-        public static Number[] RowSubtract(Number[] row1, Number[] row2)
-        {
-            if (row1.Length != row2.Length)
-            {
-                throw new InvalidOperationException();
-            }
-            Number[] resultant = new Number[row1.Length];
-            Parallel.For(0, row1.Length, i =>
-            {
-                resultant[i] = row1[i] - row2[i];
-            });
-            return resultant;
-        }
-
-        /// <summary>
         /// Returns a column at given index
         /// </summary>
         /// <param name="index"></param>
