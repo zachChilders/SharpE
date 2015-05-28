@@ -125,7 +125,7 @@ namespace Sharpe.Matrix
             RowVector resultant = new RowVector(r.Size);
             Parallel.For(0, r.Size, i =>
             {
-                r[i] -= n;
+                resultant[i] = r[i] - n;
             });
 
             return resultant;
@@ -159,7 +159,7 @@ namespace Sharpe.Matrix
             RowVector resultant = new RowVector(r.Size);
             Parallel.For(0, r.Size, i =>
             {
-                resultant[i] = r[i]*n;
+                resultant[i] = r[i] * n;
             });
 
             return resultant;
@@ -247,7 +247,7 @@ namespace Sharpe.Matrix
             Number resultant = 0.0;
             Parallel.For(0, number1.Size, i =>
             {
-                resultant += (number1[i]*v[i]);
+                resultant += (number1[i] * v[i]);
             });
 
             return resultant;
@@ -264,7 +264,7 @@ namespace Sharpe.Matrix
             Number sum = 0.0;
             for (int i = 0; i < number2.Size; i++)
             {
-                sum += (number1*number2[i]);
+                sum += (number1 * number2[i]);
             }
             return sum;
         }
@@ -285,11 +285,27 @@ namespace Sharpe.Matrix
             Number sum = 0.0;
             Parallel.For(0, r.Size, i =>
             {
-                sum += (r[i]*v[i]);
+                sum += (r[i] * v[i]);
             });
             return sum;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < v.Count; i++)
+            {
+                sb.Append(v[i].ToString());
+                sb.Append(" ");
+            }
+            sb.Append("\n");
+            return sb.ToString();
+        }
     }
 }
 

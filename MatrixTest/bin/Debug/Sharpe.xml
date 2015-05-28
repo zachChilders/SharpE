@@ -117,6 +117,22 @@
             <param name="n"></param>
             <returns></returns>
         </member>
+        <member name="M:Sharpe.Matrix.Vector.op_Addition(Sharpe.Matrix.Vector,Sharpe.Numbers.Number)">
+            <summary>
+            Adds a scalar to each element in a vector.
+            </summary>
+            <param name="a"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.op_Subtraction(Sharpe.Matrix.Vector,Sharpe.Numbers.Number)">
+            <summary>
+            Subtracts a scalar from each element in a vector.
+            </summary>
+            <param name="a"></param>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
         <member name="M:Sharpe.Matrix.Vector.MaxElement">
             <summary>
             Find the max of a vector.
@@ -159,6 +175,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Sharpe.Matrix.Vector.Magnitude">
+            <summary>
+            Calculates the magnitude of a vector.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Sharpe.Matrix.Vector.Append(Sharpe.Numbers.Number)">
             <summary>
             Appends a number to a column
@@ -170,6 +192,12 @@
             
             </summary>
             <param name="aVector"></param>
+        </member>
+        <member name="M:Sharpe.Matrix.Vector.Mean">
+            <summary>
+            Calculates the average of a Vector.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Sharpe.Matrix.Vector.ToString">
             <summary>
@@ -306,6 +334,12 @@
             </summary>
             <param name="r"></param>
             <param name="v"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.RowVector.ToString">
+            <summary>
+            
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Sharpe.Numbers.ComplexNumber">
@@ -471,6 +505,14 @@
             <returns>Resultant Matrix </returns>
         </member>
         <member name="M:Sharpe.Matrix.Matrix.op_Multiply(Sharpe.Matrix.Matrix,Sharpe.Numbers.Number)">
+            <summary>
+            Multiply by a scalar.
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpe.Matrix.Matrix.op_Multiply(Sharpe.Numbers.Number,Sharpe.Matrix.Matrix)">
             <summary>
             Multiply by a scalar.
             </summary>

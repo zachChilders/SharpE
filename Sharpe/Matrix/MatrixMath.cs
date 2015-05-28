@@ -15,10 +15,10 @@ namespace Sharpe.Matrix
         /// <returns>Transposed Matrix</returns>
         public Matrix Transpose()
         {
-            Matrix t = new Matrix(NumCols, NumRows);
-            for(int i = 0; i < NumRows; i++)
+            Matrix t = new Matrix();
+            for(int i = 0; i < NumCols; i++)
             {
-                t[i] = GetColumn(i).Transpose();
+                t.Append(GetColumn(i).Transpose());
             };
 
             return t;

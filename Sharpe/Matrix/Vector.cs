@@ -67,10 +67,10 @@ namespace Sharpe.Matrix
         {
             v = new List<Number>(array.Length);
 
-            Parallel.For(0, array.Length, i =>
+            for (int i = 0; i < array.Length; i++)
             {
                 v.Insert(i, array[i]);
-            });
+            }
         }
 
 
@@ -200,6 +200,38 @@ namespace Sharpe.Matrix
         }
 
         /// <summary>
+        /// Adds a scalar to each element in a vector.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static Vector operator +(Vector a, Number n)
+        {
+            Vector resultant = new Vector(a.v.Count);
+            Parallel.For(0, a.v.Count, i =>
+            {
+                resultant[i] = a[i] + n;
+            });
+            return resultant;
+        }
+
+        /// <summary>
+        /// Subtracts a scalar from each element in a vector.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static Vector operator -(Vector a, Number n)
+        {
+            Vector resultant = new Vector(a.v.Count);
+            Parallel.For(0, a.v.Count, i =>
+            {
+                resultant[i] = a[i] - n;
+            });
+            return resultant;
+        }
+
+        /// <summary>
         /// Find the max of a vector.
         /// </summary>
         /// <returns></returns>
@@ -273,7 +305,7 @@ namespace Sharpe.Matrix
         /// Transposing a Column Vector should give a Row vector
         /// </summary>
         /// <returns></returns>
-        public new RowVector Transpose()
+        public RowVector Transpose()
         {
             RowVector r = new RowVector(v.Count);
             Parallel.For(0, v.Count, i =>
@@ -292,6 +324,10 @@ namespace Sharpe.Matrix
             return this / Magnitude();
         }
 
+        /// <summary>
+        /// Calculates the magnitude of a vector.
+        /// </summary>
+        /// <returns></returns>
         public Number Magnitude()
         {
             Number magnitude = 0.0;
@@ -322,6 +358,20 @@ namespace Sharpe.Matrix
             {
                 Append(aVector[i]);
             }
+        }
+
+        /// <summary>
+        /// Calculates the average of a Vector.
+        /// </summary>
+        /// <returns></returns>
+        public Number Mean()
+        {
+            Number sum = 0.0;
+            for (int i = 0; i < v.Count; i++)
+            {
+                sum += v[i];
+            }
+            return sum/v.Count;
         }
 
         /// <summary>

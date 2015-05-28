@@ -30,6 +30,11 @@ namespace Sharpe.Matrix
             private set;
         }
 
+
+        public Matrix()
+        {
+            matrix = new List<RowVector>();
+        }
         /// <summary>
         /// Basic Constructor.  Makes m x n Matrix
         /// </summary>
@@ -59,7 +64,7 @@ namespace Sharpe.Matrix
             NumRows = data.Length / rowWidth;
             NumCols = rowWidth;
             matrix = new List<RowVector>(NumRows);
-            for(int i = 0; i < NumRows; i++)
+            for (int i = 0; i < NumRows; i++)
             {
                 RowVector r = new RowVector(NumCols);
                 for (int j = 0; j < NumCols; j++)
@@ -116,7 +121,7 @@ namespace Sharpe.Matrix
             }
         }
 
-      
+
         /// <summary>
         /// 
         /// </summary>
@@ -136,6 +141,14 @@ namespace Sharpe.Matrix
         /// <param name="r"></param>
         public void Append(RowVector r)
         {
+            if (matrix.Count == 0)
+            {
+                NumCols = r.Size;
+            }
+            else if (r.Size != NumCols)
+            {
+                throw new InvalidOperationException("Can't append different size row.");
+            }
             matrix.Add(r);
             NumRows++;
         }

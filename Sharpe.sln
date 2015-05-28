@@ -10,7 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTest", "MatrixTest\Ma
 		{D09AD65F-030B-4CA2-8A8E-89EEBFA47EFF} = {D09AD65F-030B-4CA2-8A8E-89EEBFA47EFF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EigenFaces", "..\EigenFaces\EigenFaces\EigenFaces.csproj", "{81369FE8-AF09-4AC0-ABCE-904F0B7FCFE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EigenFaces", "EigenFaces\EigenFaces\EigenFaces.csproj", "{81369FE8-AF09-4AC0-ABCE-904F0B7FCFE5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D09AD65F-030B-4CA2-8A8E-89EEBFA47EFF} = {D09AD65F-030B-4CA2-8A8E-89EEBFA47EFF}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

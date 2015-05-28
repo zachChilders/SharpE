@@ -72,7 +72,27 @@ namespace Sharpe.Matrix
             {
                 for (int j = 0; j < a.NumCols; j++)
                 {
-                    resultant[i][j] = a[i][j]*b;
+                    resultant[i][j] = a[i][j] * b;
+                }
+            });
+
+            return resultant;
+        }
+
+        /// <summary>
+        /// Multiply by a scalar.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static Matrix operator *(Number b,Matrix a)
+        {
+            Matrix resultant = new Matrix(a.NumRows, a.NumCols);
+            Parallel.For(0, a.NumRows, i =>
+            {
+                for (int j = 0; j < a.NumCols; j++)
+                {
+                    resultant[i][j] = a[i][j] * b;
                 }
             });
 
@@ -99,6 +119,34 @@ namespace Sharpe.Matrix
                 for (int j = 0; j < b.NumCols; j++)
                 {
                     resultant[i][j] = Dot(a[i], b.GetColumn(j));
+                }
+            });
+
+            return resultant;
+        }
+
+        public static Matrix operator /(Matrix a, Number b)
+        {
+            Matrix resultant = new Matrix(a.NumRows, a.NumCols);
+            Parallel.For(0, a.NumRows, i =>
+            {
+                for (int j = 0; j < a.NumCols; j++)
+                {
+                    resultant[i][j] = a[i][j] / b;
+                }
+            });
+
+            return resultant;
+        }
+
+        public static Matrix operator /(Number b, Matrix a)
+        {
+            Matrix resultant = new Matrix(a.NumRows, a.NumCols);
+            Parallel.For(0, a.NumRows, i =>
+            {
+                for (int j = 0; j < a.NumCols; j++)
+                {
+                    resultant[i][j] = a[i][j] / b;
                 }
             });
 
@@ -165,10 +213,7 @@ namespace Sharpe.Matrix
             {
                 return matrix[i];
             }
-            set
-            {
-                matrix[i] = value;
-            }
+            set { matrix[i] = value; }
         }
     }
 }
